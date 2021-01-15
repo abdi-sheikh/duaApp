@@ -1,0 +1,463 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC069B1F259D93F7004C49D4 /* DuaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC069B1E259D93F7004C49D4 /* DuaListView.swift */; };
+		AC6D140D259EE19B00A4636B /* DuaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D140C259EE19B00A4636B /* DuaView.swift */; };
+		AC6D1413259EF5D400A4636B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC6D1412259EF5D400A4636B /* GoogleService-Info.plist */; };
+		AC6D1427259EF7B800A4636B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D1426259EF7B800A4636B /* Category.swift */; };
+		AC6D142D259EF7F000A4636B /* Dua.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D142C259EF7F000A4636B /* Dua.swift */; };
+		AC6D1430259F071D00A4636B /* DuaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D142F259F071D00A4636B /* DuaViewModel.swift */; };
+		ACF9BD83259C0441004BC0FF /* DuaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF9BD82259C0441004BC0FF /* DuaApp.swift */; };
+		ACF9BD85259C0441004BC0FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF9BD84259C0441004BC0FF /* ContentView.swift */; };
+		ACF9BD87259C0443004BC0FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF9BD86259C0443004BC0FF /* Assets.xcassets */; };
+		ACF9BD8A259C0443004BC0FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF9BD89259C0443004BC0FF /* Preview Assets.xcassets */; };
+		ACF9BD93259C15AE004BC0FF /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF9BD92259C15AE004BC0FF /* CategoryView.swift */; };
+		ACF9BD99259C1FC6004BC0FF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF9BD98259C1FC6004BC0FF /* Colors.xcassets */; };
+		ACF9BD9D259C25D3004BC0FF /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF9BD9C259C25D3004BC0FF /* HomePage.swift */; };
+		CFC167DF5C44F32ECD03697C /* Pods_Dua.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25803D33495E416C6259B35 /* Pods_Dua.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A7F1BEE8703E94C4FA63FA9 /* Pods-Dua.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dua.debug.xcconfig"; path = "Target Support Files/Pods-Dua/Pods-Dua.debug.xcconfig"; sourceTree = "<group>"; };
+		AC069B1E259D93F7004C49D4 /* DuaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaListView.swift; sourceTree = "<group>"; };
+		AC6D140C259EE19B00A4636B /* DuaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaView.swift; sourceTree = "<group>"; };
+		AC6D1412259EF5D400A4636B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AC6D1426259EF7B800A4636B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		AC6D142C259EF7F000A4636B /* Dua.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dua.swift; sourceTree = "<group>"; };
+		AC6D142F259F071D00A4636B /* DuaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaViewModel.swift; sourceTree = "<group>"; };
+		ACF9BD7F259C0441004BC0FF /* Dua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dua.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACF9BD82259C0441004BC0FF /* DuaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaApp.swift; sourceTree = "<group>"; };
+		ACF9BD84259C0441004BC0FF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		ACF9BD86259C0443004BC0FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ACF9BD89259C0443004BC0FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ACF9BD8B259C0443004BC0FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACF9BD92259C15AE004BC0FF /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		ACF9BD98259C1FC6004BC0FF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		ACF9BD9C259C25D3004BC0FF /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		E5258AE1AE34E5FC4ED0420C /* Pods-Dua.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dua.release.xcconfig"; path = "Target Support Files/Pods-Dua/Pods-Dua.release.xcconfig"; sourceTree = "<group>"; };
+		F25803D33495E416C6259B35 /* Pods_Dua.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dua.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ACF9BD7C259C0441004BC0FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFC167DF5C44F32ECD03697C /* Pods_Dua.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19C726495B11DB2B976627EB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A7F1BEE8703E94C4FA63FA9 /* Pods-Dua.debug.xcconfig */,
+				E5258AE1AE34E5FC4ED0420C /* Pods-Dua.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AC6D140F259EF5A100A4636B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC6D1426259EF7B800A4636B /* Category.swift */,
+				AC6D142C259EF7F000A4636B /* Dua.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AC6D1410259EF5A700A4636B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ACF9BD84259C0441004BC0FF /* ContentView.swift */,
+				ACF9BD9C259C25D3004BC0FF /* HomePage.swift */,
+				AC069B1E259D93F7004C49D4 /* DuaListView.swift */,
+				AC6D140C259EE19B00A4636B /* DuaView.swift */,
+				ACF9BD92259C15AE004BC0FF /* CategoryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC6D1411259EF5AB00A4636B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AC6D142F259F071D00A4636B /* DuaViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ACF9BD76259C0441004BC0FF = {
+			isa = PBXGroup;
+			children = (
+				ACF9BD81259C0441004BC0FF /* Dua */,
+				ACF9BD80259C0441004BC0FF /* Products */,
+				19C726495B11DB2B976627EB /* Pods */,
+				F23D5EF97E7B5E90C9D08414 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		ACF9BD80259C0441004BC0FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACF9BD7F259C0441004BC0FF /* Dua.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACF9BD81259C0441004BC0FF /* Dua */ = {
+			isa = PBXGroup;
+			children = (
+				AC6D1411259EF5AB00A4636B /* ViewModel */,
+				AC6D1410259EF5A700A4636B /* View */,
+				AC6D140F259EF5A100A4636B /* Model */,
+				ACF9BD82259C0441004BC0FF /* DuaApp.swift */,
+				AC6D1412259EF5D400A4636B /* GoogleService-Info.plist */,
+				ACF9BD8B259C0443004BC0FF /* Info.plist */,
+				ACF9BD88259C0443004BC0FF /* Preview Content */,
+				ACF9BD86259C0443004BC0FF /* Assets.xcassets */,
+				ACF9BD98259C1FC6004BC0FF /* Colors.xcassets */,
+			);
+			path = Dua;
+			sourceTree = "<group>";
+		};
+		ACF9BD88259C0443004BC0FF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				ACF9BD89259C0443004BC0FF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F23D5EF97E7B5E90C9D08414 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F25803D33495E416C6259B35 /* Pods_Dua.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ACF9BD7E259C0441004BC0FF /* Dua */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACF9BD8E259C0443004BC0FF /* Build configuration list for PBXNativeTarget "Dua" */;
+			buildPhases = (
+				2FCD8A0B893F9BA95705C0AE /* [CP] Check Pods Manifest.lock */,
+				ACF9BD7B259C0441004BC0FF /* Sources */,
+				ACF9BD7C259C0441004BC0FF /* Frameworks */,
+				ACF9BD7D259C0441004BC0FF /* Resources */,
+				B4F8289FA0389A5D52F5421E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Dua;
+			productName = Dua;
+			productReference = ACF9BD7F259C0441004BC0FF /* Dua.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ACF9BD77259C0441004BC0FF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					ACF9BD7E259C0441004BC0FF = {
+						CreatedOnToolsVersion = 12.3;
+					};
+				};
+			};
+			buildConfigurationList = ACF9BD7A259C0441004BC0FF /* Build configuration list for PBXProject "Dua" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ACF9BD76259C0441004BC0FF;
+			productRefGroup = ACF9BD80259C0441004BC0FF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACF9BD7E259C0441004BC0FF /* Dua */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ACF9BD7D259C0441004BC0FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC6D1413259EF5D400A4636B /* GoogleService-Info.plist in Resources */,
+				ACF9BD99259C1FC6004BC0FF /* Colors.xcassets in Resources */,
+				ACF9BD8A259C0443004BC0FF /* Preview Assets.xcassets in Resources */,
+				ACF9BD87259C0443004BC0FF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2FCD8A0B893F9BA95705C0AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dua-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4F8289FA0389A5D52F5421E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dua/Pods-Dua-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dua/Pods-Dua-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dua/Pods-Dua-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ACF9BD7B259C0441004BC0FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACF9BD9D259C25D3004BC0FF /* HomePage.swift in Sources */,
+				ACF9BD85259C0441004BC0FF /* ContentView.swift in Sources */,
+				ACF9BD83259C0441004BC0FF /* DuaApp.swift in Sources */,
+				ACF9BD93259C15AE004BC0FF /* CategoryView.swift in Sources */,
+				AC069B1F259D93F7004C49D4 /* DuaListView.swift in Sources */,
+				AC6D142D259EF7F000A4636B /* Dua.swift in Sources */,
+				AC6D1430259F071D00A4636B /* DuaViewModel.swift in Sources */,
+				AC6D140D259EE19B00A4636B /* DuaView.swift in Sources */,
+				AC6D1427259EF7B800A4636B /* Category.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		ACF9BD8C259C0443004BC0FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ACF9BD8D259C0443004BC0FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ACF9BD8F259C0443004BC0FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A7F1BEE8703E94C4FA63FA9 /* Pods-Dua.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Dua/Preview Content\"";
+				DEVELOPMENT_TEAM = LZ5X4YJ5VN;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Dua/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = AbdiSheikh.Dua;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ACF9BD90259C0443004BC0FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5258AE1AE34E5FC4ED0420C /* Pods-Dua.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Dua/Preview Content\"";
+				DEVELOPMENT_TEAM = LZ5X4YJ5VN;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Dua/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = AbdiSheikh.Dua;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ACF9BD7A259C0441004BC0FF /* Build configuration list for PBXProject "Dua" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACF9BD8C259C0443004BC0FF /* Debug */,
+				ACF9BD8D259C0443004BC0FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACF9BD8E259C0443004BC0FF /* Build configuration list for PBXNativeTarget "Dua" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACF9BD8F259C0443004BC0FF /* Debug */,
+				ACF9BD90259C0443004BC0FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ACF9BD77259C0441004BC0FF /* Project object */;
+}
