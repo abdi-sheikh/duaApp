@@ -14,7 +14,7 @@ class DuaViewModel: ObservableObject {
     
     init() {
         let db = Firestore.firestore()
-        db.collection("dua").addSnapshotListener{ (snap, err) in
+        db.collection("dua").getDocuments{ (snap, err) in
             if err != nil {
                 print(err?.localizedDescription as Any)
                 return

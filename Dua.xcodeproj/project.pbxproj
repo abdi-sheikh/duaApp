@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC02D64325B1362000DF4A9C /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC02D64225B1362000DF4A9C /* FavoritesViewModel.swift */; };
 		AC069B1F259D93F7004C49D4 /* DuaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC069B1E259D93F7004C49D4 /* DuaListView.swift */; };
 		AC6D140D259EE19B00A4636B /* DuaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D140C259EE19B00A4636B /* DuaView.swift */; };
 		AC6D1413259EF5D400A4636B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC6D1412259EF5D400A4636B /* GoogleService-Info.plist */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		4A7F1BEE8703E94C4FA63FA9 /* Pods-Dua.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dua.debug.xcconfig"; path = "Target Support Files/Pods-Dua/Pods-Dua.debug.xcconfig"; sourceTree = "<group>"; };
+		AC02D64225B1362000DF4A9C /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		AC069B1E259D93F7004C49D4 /* DuaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaListView.swift; sourceTree = "<group>"; };
 		AC6D140C259EE19B00A4636B /* DuaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaView.swift; sourceTree = "<group>"; };
 		AC6D1412259EF5D400A4636B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				AC6D142F259F071D00A4636B /* DuaViewModel.swift */,
+				AC02D64225B1362000DF4A9C /* FavoritesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC02D64325B1362000DF4A9C /* FavoritesViewModel.swift in Sources */,
 				ACF9BD9D259C25D3004BC0FF /* HomePage.swift in Sources */,
 				ACF9BD85259C0441004BC0FF /* ContentView.swift in Sources */,
 				ACF9BD83259C0441004BC0FF /* DuaApp.swift in Sources */,
