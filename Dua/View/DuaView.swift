@@ -33,9 +33,6 @@ struct DuaView: View {
                         .lineSpacing(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
                         .minimumScaleFactor(0.5)
                         .foregroundColor(.black)
-                        
-                    LikeButton(dua: dua).frame(maxWidth: .infinity, maxHeight: 25, alignment: .leading)
-                    
                 }
 
                 
@@ -43,6 +40,7 @@ struct DuaView: View {
                     VStack(alignment: .leading){
                         Text("Translation")
                             .font(.caption)
+                            .foregroundColor(.black)
                         Divider()
                     }.padding(.horizontal, 20.0)
                     
@@ -61,6 +59,7 @@ struct DuaView: View {
                     VStack(alignment: .leading){
                         Text("Transliteration")
                             .font(.caption)
+                            .foregroundColor(.black)
                         Divider()
                     }.padding(.horizontal, 20.0)
                     
@@ -74,60 +73,16 @@ struct DuaView: View {
                         .foregroundColor(.black)
                     
                 }
+                
+                LikeShareButton(dua: dua)
             }.padding([.leading, .bottom, .trailing], 20.0)
-            //.padding(.top, 60.0)
             .navigationBarItems(trailing: Image(systemName: "square.and.arrow.up"))
         }
+        .foregroundColor(.white)
+        .background(LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .center, endPoint: .bottom))
     }
 }
 
-struct LikeButton : View {
-    var dua: Dua
-    @State var scale : CGFloat = 1
-    @State var opacity  = 0.0
-    
-    @State var isPressed = false
-    var body: some View {
-        let db = Firestore.firestore()
-        ZStack {
-            Image(systemName: "heart.fill")
-                .opacity(isPressed ? 1 : 0)
-                .scaleEffect(isPressed ? 1.0 : 0.1)
-                .animation(.easeIn)
-            Image(systemName: "heart")
-        }.font(.system(size: 20))
-            .onTapGesture {
-                if self.isPressed == false {
-                    self.isPressed.toggle()
-                    db.collection("favorites").document(dua.name).setData(
-                        [
-                            "arabic_dua" : dua.arabicDua,
-                            "category" : dua.category,
-                            "name" : dua.name,
-                            "translation" : dua.translation,
-                            "transliteration" : dua.transliteration
-                        ]) { err in
-                        if let err = err {
-                            print("Error writing document: \(err)")
-                        } else {
-                            print("Document successfully written!")
-                        }
-                    }
-                } else {
-                    self.isPressed.toggle()
-                    db.collection("favorites").document(dua.name).delete() {err in
-                        if let err = err {
-                            print("Error removing document: \(err)")
-                        } else {
-                            print("Document successfully removed!")
-                        }
-                    }
-                }
-
-        }
-        .foregroundColor(isPressed ? .red : .gray)
-    }
-}
 
 struct DuaView_Previews: PreviewProvider {
     static var previews: some View {

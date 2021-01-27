@@ -23,7 +23,7 @@ struct ContentView: View {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }.tag(0)
-            Text("Reminders")
+            ReminderPage()
                 .tabItem {
                     Image(systemName: "deskclock.fill")
                     Text("Reminders")
