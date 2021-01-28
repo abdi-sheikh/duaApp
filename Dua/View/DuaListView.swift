@@ -10,6 +10,7 @@ import SwiftUI
 struct DuaListView: View {
     var categoryName: String
     var categoryImage: String
+    var categoryColor: Color
     @ObservedObject var duas = DuaViewModel()
     
     var body: some View {
@@ -17,7 +18,7 @@ struct DuaListView: View {
             $0.category == categoryName
         }){ dua in
             NavigationLink(
-                destination: DuaView(dua: dua)){
+                destination: DuaView(dua: dua, categoryColor: categoryColor)){
                 HStack{
                     Text(dua.name)
                         .foregroundColor(.black)
@@ -38,6 +39,6 @@ struct DuaListView: View {
 
 struct DuaListView_Previews: PreviewProvider {
     static var previews: some View {
-        DuaListView(categoryName: "Daily", categoryImage: "001-moon")
+        DuaListView(categoryName: "Daily", categoryImage: "001-moon", categoryColor: Color(.yellow))
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DuaView: View {
     var dua: Dua
-    
+    var categoryColor: Color
     var body: some View {
         
         ScrollView(){
@@ -47,12 +47,12 @@ struct DuaView: View {
                     Text(dua.translation)
                         .fontWeight(.light)
                         .multilineTextAlignment(.center)
-                        .frame(width: 350)
                         .font(.title3)
                         .lineSpacing(10.0)
                         .minimumScaleFactor(0.5)
                         .foregroundColor(.black)
                 }
+                .frame(minWidth: 300.0)
                 .padding(.top, -10.0)
                 
                 VStack{
@@ -66,26 +66,24 @@ struct DuaView: View {
                     Text(dua.transliteration)
                         .fontWeight(.light)
                         .multilineTextAlignment(.center)
-                        .frame(width: 350)
                         .font(.title3)
                         .lineSpacing(10.0)
                         .minimumScaleFactor(0.5)
                         .foregroundColor(.black)
                     
                 }
-                
-                LikeShareButton(dua: dua)
+                .frame(minWidth: 300.0)
             }.padding([.leading, .bottom, .trailing], 20.0)
-            .navigationBarItems(trailing: Image(systemName: "square.and.arrow.up"))
+
         }
         .foregroundColor(.white)
-        .background(LinearGradient(gradient: Gradient(colors: [.white, .yellow]), startPoint: .center, endPoint: .bottom))
+        .background(LinearGradient(gradient: Gradient(colors: [.white, categoryColor]), startPoint: .center, endPoint: .bottom))
     }
 }
 
 
 struct DuaView_Previews: PreviewProvider {
     static var previews: some View {
-        DuaView(dua: Dua.init(id: "abc123", name: "Waking up", arabicDua: "الحَمْدُ لِلهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ", translation: "All praise is for Allah who gave us life after causing us to die, and unto Him is the resurrection. (Bukhari)", transliteration: "alḥamdu lillaahil-ladhee aḥyaanaa ba‛da maa amaatanaa wa ilayhin-nushoor", category: "daily"))
+        DuaView(dua: Dua.init(id: "abc123", name: "Waking up", arabicDua: "الحَمْدُ لِلهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ", translation: "All praise is for Allah who gave us life after causing us to die, and unto Him is the resurrection. (Bukhari)", transliteration: "alḥamdu lillaahil-ladhee aḥyaanaa ba‛da maa amaatanaa wa ilayhin-nushoor", category: "daily"), categoryColor: Color(.yellow))
     }
 }

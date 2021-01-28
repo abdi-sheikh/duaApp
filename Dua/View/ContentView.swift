@@ -28,12 +28,12 @@ struct ContentView: View {
                     Image(systemName: "deskclock.fill")
                     Text("Reminders")
                 }.tag(1)
-            Text("Favorites")
+            FavoritesPage()
                 .tabItem {
                     Image(systemName: "heart.fill")
                     Text("Favorites")
                 }.tag(2)
-            Text("Settings")
+            SettingsPage()
                 .tabItem {
                     Image(systemName: "gearshape.fill")
                     Text("Settings")

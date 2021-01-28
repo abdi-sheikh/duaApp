@@ -1,18 +1,17 @@
 //
-//  ReminderPage.swift
+//  FavoritesPage.swift
 //  Dua
 //
-//  Created by Abdi Sheikh on 1/21/21.
+//  Created by Abdi Sheikh on 1/27/21.
 //
 
 import SwiftUI
 
-struct ReminderPage: View {
-    
+struct FavoritesPage: View {
     var body: some View {
         VStack() {
             HStack {
-                Text("Reminders")
+                Text("Favorites")
                     .font(.largeTitle)
                     .fontWeight(.regular)
             }
@@ -20,11 +19,10 @@ struct ReminderPage: View {
 
         }.padding([.top, .leading, .trailing])
     }
-    
 }
 
-struct ReminderPage_Previews: PreviewProvider {
+struct FavoritesPage_Previews: PreviewProvider {
     static var previews: some View {
-        ReminderPage()
+        FavoritesPage()
     }
 }

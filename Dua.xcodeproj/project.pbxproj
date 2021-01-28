@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC02D64325B1362000DF4A9C /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC02D64225B1362000DF4A9C /* FavoritesViewModel.swift */; };
 		AC069B1F259D93F7004C49D4 /* DuaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC069B1E259D93F7004C49D4 /* DuaListView.swift */; };
 		AC1382D825BA81E9007415CF /* ReminderPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1382D725BA81E9007415CF /* ReminderPage.swift */; };
 		AC1382EC25C11A34007415CF /* LikeShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1382EB25C11A34007415CF /* LikeShareButton.swift */; };
 		AC1382EF25C1285E007415CF /* ReminderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1382EE25C1285E007415CF /* ReminderButton.swift */; };
+		AC21AF4425C263FC00BE27DB /* FavoritesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC21AF4325C263FC00BE27DB /* FavoritesPage.swift */; };
+		AC21AF4725C2646E00BE27DB /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC21AF4625C2646E00BE27DB /* SettingsPage.swift */; };
 		AC6D140D259EE19B00A4636B /* DuaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D140C259EE19B00A4636B /* DuaView.swift */; };
 		AC6D1413259EF5D400A4636B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC6D1412259EF5D400A4636B /* GoogleService-Info.plist */; };
 		AC6D1427259EF7B800A4636B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D1426259EF7B800A4636B /* Category.swift */; };
@@ -29,11 +30,12 @@
 
 /* Begin PBXFileReference section */
 		4A7F1BEE8703E94C4FA63FA9 /* Pods-Dua.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dua.debug.xcconfig"; path = "Target Support Files/Pods-Dua/Pods-Dua.debug.xcconfig"; sourceTree = "<group>"; };
-		AC02D64225B1362000DF4A9C /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		AC069B1E259D93F7004C49D4 /* DuaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaListView.swift; sourceTree = "<group>"; };
 		AC1382D725BA81E9007415CF /* ReminderPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPage.swift; sourceTree = "<group>"; };
 		AC1382EB25C11A34007415CF /* LikeShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeShareButton.swift; sourceTree = "<group>"; };
 		AC1382EE25C1285E007415CF /* ReminderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderButton.swift; sourceTree = "<group>"; };
+		AC21AF4325C263FC00BE27DB /* FavoritesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPage.swift; sourceTree = "<group>"; };
+		AC21AF4625C2646E00BE27DB /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
 		AC6D140C259EE19B00A4636B /* DuaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaView.swift; sourceTree = "<group>"; };
 		AC6D1412259EF5D400A4636B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC6D1426259EF7B800A4636B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -93,6 +95,8 @@
 				AC1382D725BA81E9007415CF /* ReminderPage.swift */,
 				AC1382EB25C11A34007415CF /* LikeShareButton.swift */,
 				AC1382EE25C1285E007415CF /* ReminderButton.swift */,
+				AC21AF4325C263FC00BE27DB /* FavoritesPage.swift */,
+				AC21AF4625C2646E00BE27DB /* SettingsPage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -101,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				AC6D142F259F071D00A4636B /* DuaViewModel.swift */,
-				AC02D64225B1362000DF4A9C /* FavoritesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -271,14 +274,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC02D64325B1362000DF4A9C /* FavoritesViewModel.swift in Sources */,
 				ACF9BD9D259C25D3004BC0FF /* HomePage.swift in Sources */,
+				AC21AF4425C263FC00BE27DB /* FavoritesPage.swift in Sources */,
 				ACF9BD85259C0441004BC0FF /* ContentView.swift in Sources */,
 				ACF9BD83259C0441004BC0FF /* DuaApp.swift in Sources */,
 				AC1382EC25C11A34007415CF /* LikeShareButton.swift in Sources */,
 				ACF9BD93259C15AE004BC0FF /* CategoryView.swift in Sources */,
 				AC069B1F259D93F7004C49D4 /* DuaListView.swift in Sources */,
 				AC6D142D259EF7F000A4636B /* Dua.swift in Sources */,
+				AC21AF4725C2646E00BE27DB /* SettingsPage.swift in Sources */,
 				AC1382EF25C1285E007415CF /* ReminderButton.swift in Sources */,
 				AC6D1430259F071D00A4636B /* DuaViewModel.swift in Sources */,
 				AC6D140D259EE19B00A4636B /* DuaView.swift in Sources */,
