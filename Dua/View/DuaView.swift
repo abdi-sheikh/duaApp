@@ -9,6 +9,7 @@ import Firebase
 import SwiftUI
 
 struct DuaView: View {
+    @Environment(\.colorScheme) var colorScheme
     var dua: Dua
     var categoryColor: Color
     var body: some View {
@@ -22,7 +23,7 @@ struct DuaView: View {
                     .lineLimit(2)
                     .lineSpacing(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
                     .minimumScaleFactor(0.5)
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
                 
                 VStack {
                     Text(dua.arabicDua)
@@ -32,7 +33,7 @@ struct DuaView: View {
                         .lineLimit(nil)
                         .lineSpacing(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
                         .minimumScaleFactor(0.5)
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                 }
 
                 
@@ -40,7 +41,7 @@ struct DuaView: View {
                     VStack(alignment: .leading){
                         Text("Translation")
                             .font(.caption)
-                            .foregroundColor(.black)
+                            .foregroundColor(.primary)
                         Divider()
                     }.padding(.horizontal, 20.0)
                     
@@ -50,7 +51,7 @@ struct DuaView: View {
                         .font(.title3)
                         .lineSpacing(10.0)
                         .minimumScaleFactor(0.5)
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                 }
                 .frame(minWidth: 300.0)
                 .padding(.top, -10.0)
@@ -59,7 +60,7 @@ struct DuaView: View {
                     VStack(alignment: .leading){
                         Text("Transliteration")
                             .font(.caption)
-                            .foregroundColor(.black)
+                            .foregroundColor(.primary)
                         Divider()
                     }.padding(.horizontal, 20.0)
                     
@@ -69,7 +70,7 @@ struct DuaView: View {
                         .font(.title3)
                         .lineSpacing(10.0)
                         .minimumScaleFactor(0.5)
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                     
                 }
                 .frame(minWidth: 300.0)
@@ -77,7 +78,7 @@ struct DuaView: View {
 
         }
         .foregroundColor(.white)
-        .background(LinearGradient(gradient: Gradient(colors: [.white, categoryColor]), startPoint: .center, endPoint: .bottom))
+        .background(LinearGradient(gradient: Gradient(colors: colorScheme == .dark ? [.black, categoryColor] : [.white, categoryColor] ), startPoint: .center, endPoint: .bottom))
     }
 }
 

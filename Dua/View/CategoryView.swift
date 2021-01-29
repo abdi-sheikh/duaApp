@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CategoryView: View {
-    
-    var columns = Array(repeating: GridItem(.adaptive(minimum: 159), spacing: 20), count: 2)
+    @Environment(\.colorScheme) var colorScheme
+    var columns = Array(repeating: GridItem(.adaptive(minimum: 159)), count: 2)
     var category_Data: [Category]
     
     
@@ -37,12 +37,12 @@ struct CategoryView: View {
                                 .fill(cate.color)
                                 .aspectRatio(contentMode: .fit)
                                 .frame(maxHeight: 157, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                                .shadow(color: colorScheme == .dark ? Color(.sRGBLinear, white: 100, opacity: 0.2) : Color(.sRGBLinear, white: 0, opacity: 0.33), radius: 5)
                         )
                     }.foregroundColor(.black)
                 }
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 10)
             .padding(.top, 25)
             .padding(.bottom, 20)
         }

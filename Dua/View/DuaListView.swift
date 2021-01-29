@@ -14,14 +14,15 @@ struct DuaListView: View {
     @ObservedObject var duas = DuaViewModel()
     
     var body: some View {
-        List(duas.duas.filter {
-            $0.category == categoryName
-        }){ dua in
+        List(duas.duas
+                .filter{ $0.category == categoryName }
+                .sorted{ $0.name < $1.name }
+        ){ dua in
             NavigationLink(
                 destination: DuaView(dua: dua, categoryColor: categoryColor)){
                 HStack{
                     Text(dua.name)
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                         .fontWeight(.light)
                         .lineLimit(2)
                 }
