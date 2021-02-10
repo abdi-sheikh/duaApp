@@ -12,6 +12,7 @@ struct DuaApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(DuaViewModel())
         }
     }
 }

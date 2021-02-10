@@ -11,7 +11,8 @@ struct DuaListView: View {
     var categoryName: String
     var categoryImage: String
     var categoryColor: Color
-    @ObservedObject var duas = DuaViewModel()
+    // @ObservedObject var duas = DuaViewModel()
+    @EnvironmentObject var duas: DuaViewModel
     
     var body: some View {
         List(duas.duas
@@ -21,7 +22,7 @@ struct DuaListView: View {
             NavigationLink(
                 destination: DuaView(dua: dua, categoryColor: categoryColor)){
                 HStack{
-                    Text(dua.name)
+                    Text(dua.name.capitalized)
                         .foregroundColor(.primary)
                         .fontWeight(.light)
                         .lineLimit(2)
