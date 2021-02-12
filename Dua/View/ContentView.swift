@@ -14,32 +14,13 @@ struct ContentView: View {
         FirebaseApp.configure()
     }
     
-    @State private var selection = 0
-    
     var body: some View {
-        TabView(selection: $selection) {
-            HomePage()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }.tag(0)
-            ReminderPage()
-                .tabItem {
-                    Image(systemName: "deskclock.fill")
-                    Text("Reminders")
-                }.tag(1)
-            FavoritesPage()
-                .tabItem {
-                    Image(systemName: "heart.fill")
-                    Text("Favorites")
-                }.tag(2)
-            SettingsPage()
-                .tabItem {
-                    Image(systemName: "gearshape.fill")
-                    Text("Settings")
-                }.tag(3)
+        UIKitTabView {
+            HomePage().tab(title: "Home", image: "house.fill")
+            ReminderPage().tab(title: "Reminders", image: "deskclock.fill")
+            FavoritesPage().tab(title: "Favorites", image: "heart.fill")
+            SettingsPage().tab(title: "Settings", image: "gearshape.fill")
         }
-        .font(.headline)
     }
     
 }
