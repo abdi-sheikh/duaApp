@@ -14,10 +14,10 @@
 		AC21AF4425C263FC00BE27DB /* FavoritesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC21AF4325C263FC00BE27DB /* FavoritesPage.swift */; };
 		AC21AF4725C2646E00BE27DB /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC21AF4625C2646E00BE27DB /* SettingsPage.swift */; };
 		AC6D140D259EE19B00A4636B /* DuaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D140C259EE19B00A4636B /* DuaView.swift */; };
-		AC6D1413259EF5D400A4636B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC6D1412259EF5D400A4636B /* GoogleService-Info.plist */; };
 		AC6D1427259EF7B800A4636B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D1426259EF7B800A4636B /* Category.swift */; };
 		AC6D142D259EF7F000A4636B /* Dua.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D142C259EF7F000A4636B /* Dua.swift */; };
 		AC6D1430259F071D00A4636B /* DuaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D142F259F071D00A4636B /* DuaViewModel.swift */; };
+		AC85698A25EB55C400982D32 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC85698925EB55C400982D32 /* GoogleService-Info.plist */; };
 		ACBCE96625D6307F00266975 /* UIKitTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCE96525D6307F00266975 /* UIKitTabView.swift */; };
 		ACF9BD83259C0441004BC0FF /* DuaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF9BD82259C0441004BC0FF /* DuaApp.swift */; };
 		ACF9BD85259C0441004BC0FF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF9BD84259C0441004BC0FF /* ContentView.swift */; };
@@ -38,10 +38,10 @@
 		AC21AF4325C263FC00BE27DB /* FavoritesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPage.swift; sourceTree = "<group>"; };
 		AC21AF4625C2646E00BE27DB /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
 		AC6D140C259EE19B00A4636B /* DuaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaView.swift; sourceTree = "<group>"; };
-		AC6D1412259EF5D400A4636B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC6D1426259EF7B800A4636B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		AC6D142C259EF7F000A4636B /* Dua.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dua.swift; sourceTree = "<group>"; };
 		AC6D142F259F071D00A4636B /* DuaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaViewModel.swift; sourceTree = "<group>"; };
+		AC85698925EB55C400982D32 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ACBCE96525D6307F00266975 /* UIKitTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitTabView.swift; sourceTree = "<group>"; };
 		ACF9BD7F259C0441004BC0FF /* Dua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dua.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF9BD82259C0441004BC0FF /* DuaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaApp.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 				AC6D1410259EF5A700A4636B /* View */,
 				AC6D140F259EF5A100A4636B /* Model */,
 				ACF9BD82259C0441004BC0FF /* DuaApp.swift */,
-				AC6D1412259EF5D400A4636B /* GoogleService-Info.plist */,
+				AC85698925EB55C400982D32 /* GoogleService-Info.plist */,
 				ACF9BD8B259C0443004BC0FF /* Info.plist */,
 				ACF9BD88259C0443004BC0FF /* Preview Content */,
 				ACF9BD86259C0443004BC0FF /* Assets.xcassets */,
@@ -229,10 +229,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC6D1413259EF5D400A4636B /* GoogleService-Info.plist in Resources */,
 				ACF9BD99259C1FC6004BC0FF /* Colors.xcassets in Resources */,
 				ACF9BD8A259C0443004BC0FF /* Preview Assets.xcassets in Resources */,
 				ACF9BD87259C0443004BC0FF /* Assets.xcassets in Resources */,
+				AC85698A25EB55C400982D32 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +438,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = AbdiSheikh.Dua;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abdisheikh.duareminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -461,7 +461,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = AbdiSheikh.Dua;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abdisheikh.duareminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

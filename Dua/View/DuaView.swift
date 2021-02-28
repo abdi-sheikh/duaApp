@@ -22,7 +22,7 @@ struct DuaView: View {
                     .multilineTextAlignment(.center)
                     .lineLimit(2)
                     .lineSpacing(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
-                    .minimumScaleFactor(0.5)
+                    .minimumScaleFactor(0.8)
                     .foregroundColor(.primary)
                 
                 VStack {
@@ -32,7 +32,7 @@ struct DuaView: View {
                         .multilineTextAlignment(.center)
                         .lineLimit(nil)
                         .lineSpacing(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
-                        .minimumScaleFactor(0.5)
+                        .minimumScaleFactor(0.8)
                         .foregroundColor(.primary)
                 }
 
@@ -69,7 +69,7 @@ struct DuaView: View {
                         .multilineTextAlignment(.center)
                         .font(.title3)
                         .lineSpacing(10.0)
-                        .minimumScaleFactor(0.5)
+                        .minimumScaleFactor(0.8)
                         .foregroundColor(.primary)
                     
                 }
