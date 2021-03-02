@@ -8,7 +8,7 @@
 import FirebaseFirestoreSwift
 import SwiftUI
 
-struct Dua : Identifiable, Hashable {
+struct Dua : Identifiable, Hashable, Codable {
     
     var id: String
     var name: String

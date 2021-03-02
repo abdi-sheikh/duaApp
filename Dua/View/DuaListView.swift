@@ -11,7 +11,6 @@ struct DuaListView: View {
     var categoryName: String
     var categoryImage: String
     var categoryColor: Color
-    // @ObservedObject var duas = DuaViewModel()
     @EnvironmentObject var duas: DuaViewModel
     
     var body: some View {

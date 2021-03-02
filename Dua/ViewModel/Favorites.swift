@@ -8,34 +8,50 @@
 import SwiftUI
 
 class Favorites: ObservableObject {
-    private var duas: Set<String>
-    
-    private let saveKey = "Favorites"
+    private var duas: Set<Dua>
+    let defaults = UserDefaults.standard
     
     init() {
         // load out saved data
-        
-        self.duas = []
+        let decoder = JSONDecoder()
+        if let data = defaults.value(forKey: "Favorites") as? Data {
+            let duaData = try? decoder.decode(Set<Dua>.self, from: data)
+            self.duas = duaData ?? []
+        } else {
+            self.duas = []
+        }
     }
     
     
+    func getDuaIds() -> Set<Dua> {
+        return self.duas
+    }
+    
+    func isEmpty() -> Bool {
+        duas.count < 1
+    }
+    
     func contains(_ dua: Dua) -> Bool {
-        duas.contains(dua.id)
+        duas.contains(dua)
     }
     
     func add(_ dua: Dua) {
         objectWillChange.send()
-        duas.insert(dua.id)
+        duas.insert(dua)
+        print(duas)
         save()
     }
     
     func remove(_ dua: Dua) {
         objectWillChange.send()
-        duas.remove(dua.id)
+        duas.remove(dua)
         save()
     }
     
     func save() {
-        
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(duas) {
+            defaults.set(encoded, forKey: "Favorites")
+        }
     }
 }
