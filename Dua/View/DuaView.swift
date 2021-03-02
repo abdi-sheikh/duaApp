@@ -74,6 +74,8 @@ struct DuaView: View {
                     
                 }
                 .frame(minWidth: 300.0)
+                
+                LikeShareButton(dua: dua)
             }.padding([.leading, .bottom, .trailing], 20.0)
 
         }
