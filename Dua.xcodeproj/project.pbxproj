@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		AC6D1427259EF7B800A4636B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D1426259EF7B800A4636B /* Category.swift */; };
 		AC6D142D259EF7F000A4636B /* Dua.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D142C259EF7F000A4636B /* Dua.swift */; };
 		AC6D1430259F071D00A4636B /* DuaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D142F259F071D00A4636B /* DuaViewModel.swift */; };
+		AC83918D25EDD4B9003FDF4D /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = AC83918C25EDD4B9003FDF4D /* PartialSheet */; };
 		AC85698A25EB55C400982D32 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC85698925EB55C400982D32 /* GoogleService-Info.plist */; };
 		ACBCE96625D6307F00266975 /* UIKitTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCE96525D6307F00266975 /* UIKitTabView.swift */; };
 		ACBCE96A25DF5CCF00266975 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCE96925DF5CCF00266975 /* Favorites.swift */; };
@@ -63,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC83918D25EDD4B9003FDF4D /* PartialSheet in Frameworks */,
 				CFC167DF5C44F32ECD03697C /* Pods_Dua.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,6 +193,9 @@
 			dependencies = (
 			);
 			name = Dua;
+			packageProductDependencies = (
+				AC83918C25EDD4B9003FDF4D /* PartialSheet */,
+			);
 			productName = Dua;
 			productReference = ACF9BD7F259C0441004BC0FF /* Dua.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +223,9 @@
 				Base,
 			);
 			mainGroup = ACF9BD76259C0441004BC0FF;
+			packageReferences = (
+				AC83918B25EDD4B9003FDF4D /* XCRemoteSwiftPackageReference "PartialSheet" */,
+			);
 			productRefGroup = ACF9BD80259C0441004BC0FF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -494,6 +502,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AC83918B25EDD4B9003FDF4D /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.11;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AC83918C25EDD4B9003FDF4D /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC83918B25EDD4B9003FDF4D /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ACF9BD77259C0441004BC0FF /* Project object */;
 }

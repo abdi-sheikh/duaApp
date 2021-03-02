@@ -20,7 +20,7 @@ struct ContentView: View {
             ReminderPage().tab(title: "Reminders", image: "deskclock.fill")
             FavoritesPage().tab(title: "Favorites", image: "heart.fill")
             SettingsPage().tab(title: "Settings", image: "gearshape.fill")
-        }
+        }.addPartialSheet()
     }
     
 }
