@@ -6,9 +6,11 @@
 //
 
 import Firebase
+import PartialSheet
 import SwiftUI
 
 struct DuaView: View {
+    @EnvironmentObject var partialSheetManager: PartialSheetManager
     @Environment(\.colorScheme) var colorScheme
     var dua: Dua
     var categoryColor: Color
@@ -16,6 +18,7 @@ struct DuaView: View {
         
         ScrollView(){
             VStack(spacing: 40){
+                // Name
                 Text(dua.name)
                     .fontWeight(.light)
                     .font(.title3)
@@ -25,6 +28,7 @@ struct DuaView: View {
                     .minimumScaleFactor(0.8)
                     .foregroundColor(.primary)
                 
+                // Arabic
                 VStack {
                     Text(dua.arabicDua)
                         .fontWeight(.light)
@@ -36,7 +40,7 @@ struct DuaView: View {
                         .foregroundColor(.primary)
                 }
 
-                
+                // Translation
                 VStack{
                     VStack(alignment: .leading){
                         Text("Translation")
@@ -56,6 +60,7 @@ struct DuaView: View {
                 .frame(minWidth: 300.0)
                 .padding(.top, -10.0)
                 
+                // Transliteration
                 VStack{
                     VStack(alignment: .leading){
                         Text("Transliteration")
@@ -75,10 +80,40 @@ struct DuaView: View {
                 }
                 .frame(minWidth: 300.0)
                 
-                LikeShareButton(dua: dua)
+                // Reminder + Favorites Capsule
+                HStack{
+                    //Reminder Button
+                    Button(action: {
+                        self.partialSheetManager.showPartialSheet({
+                            print("Partial sheet dismissed")
+                        }) {
+                             ReminderButton()
+                        }
+                    }, label: {
+                        Image(systemName: "deskclock")
+                    })
+                    
+                    //Divider
+                    HStack {
+                        Divider()
+                    }
+                    .frame( height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(.secondary)
+                    
+                    // Fav Button
+                    FavoriteButton(dua: dua)
+                }
+                .foregroundColor(.secondary)
+                .padding()
+                .overlay(
+                    Capsule(style: .continuous)
+                        .stroke(Color.secondary, style: StrokeStyle(lineWidth: 1))
+                        
+                )
+            // padding for VStack
             }.padding([.leading, .bottom, .trailing], 20.0)
 
-        }
+        } // attributes for scroll view
         .foregroundColor(.white)
         .background(LinearGradient(gradient: Gradient(colors: colorScheme == .dark ? [.black, categoryColor] : [.white, categoryColor] ), startPoint: .center, endPoint: .bottom))
     }
