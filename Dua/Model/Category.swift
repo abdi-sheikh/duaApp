@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 struct Category: Identifiable {
-    var id: Int
-    var image: String
-    var name: String
-    var color: Color
+    let id: Int
+    let image: String
+    let name: String
+    let color: Color
 }
