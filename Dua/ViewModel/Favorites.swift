@@ -8,7 +8,8 @@
 import SwiftUI
 
 class Favorites: ObservableObject {
-    private var duas: Set<Dua>
+    @Published var duas = Set<Dua>()
+    
     let defaults = UserDefaults.standard
     
     init() {
@@ -22,11 +23,6 @@ class Favorites: ObservableObject {
         }
     }
     
-    
-    func getDuaIds() -> Set<Dua> {
-        return self.duas
-    }
-    
     func isEmpty() -> Bool {
         duas.count < 1
     }
@@ -36,14 +32,11 @@ class Favorites: ObservableObject {
     }
     
     func add(_ dua: Dua) {
-        objectWillChange.send()
         duas.insert(dua)
-        print(duas)
         save()
     }
     
     func remove(_ dua: Dua) {
-        objectWillChange.send()
         duas.remove(dua)
         save()
     }

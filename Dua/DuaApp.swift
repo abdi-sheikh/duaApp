@@ -15,6 +15,7 @@ struct DuaApp: App {
             let sheetManager: PartialSheetManager = PartialSheetManager()
             ContentView()
                 .environmentObject(DuaViewModel())
+                .environmentObject(Favorites())
                 .environmentObject(sheetManager)
             
         }
