@@ -8,49 +8,41 @@
 import SwiftUI
 
 class Reminders: ObservableObject {
-    private var duas: Set<Dua>
+    @Published var reminders = Set<Reminder>()
     let defaults = UserDefaults.standard
     
     init() {
         // load out saved data
         let decoder = JSONDecoder()
         if let data = defaults.value(forKey: "Reminders") as? Data {
-            let duaData = try? decoder.decode(Set<Dua>.self, from: data)
-            self.duas = duaData ?? []
+            let reminderData = try? decoder.decode(Set<Reminder>.self, from: data)
+            self.reminders = reminderData ?? []
         } else {
-            self.duas = []
+            self.reminders = []
         }
     }
     
-    
-    func getDuaIds() -> Set<Dua> {
-        return self.duas
-    }
-    
     func isEmpty() -> Bool {
-        duas.count < 1
+        reminders.count < 1
     }
     
-    func contains(_ dua: Dua) -> Bool {
-        duas.contains(dua)
+    func contains(_ reminder: Reminder) -> Bool {
+        reminders.contains(reminder)
     }
     
-    func add(_ dua: Dua) {
-        objectWillChange.send()
-        duas.insert(dua)
-        print(duas)
+    func add(_ reminder: Reminder) {
+        reminders.insert(reminder)
         save()
     }
     
-    func remove(_ dua: Dua) {
-        objectWillChange.send()
-        duas.remove(dua)
+    func remove(_ reminder: Reminder) {
+        reminders.remove(reminder)
         save()
     }
     
     func save() {
         let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(duas) {
+        if let encoded = try? encoder.encode(reminders) {
             defaults.set(encoded, forKey: "Reminders")
         }
     }

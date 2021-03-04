@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var favorites = Favorites()
+    @StateObject var reminders = Reminders()
     
     init() {
         FirebaseApp.configure()
@@ -18,12 +19,13 @@ struct ContentView: View {
     var body: some View {
         UIKitTabView {
             HomePage().tab(title: "Home", image: "house.fill")
-            ReminderPage().tab(title: "Reminders", image: "deskclock.fill")
+            ReminderPage().environmentObject(reminders).tab(title: "Reminders", image: "deskclock.fill")
             FavoritesPage().environmentObject(favorites).tab(title: "Favorites", image: "heart.fill")
             SettingsPage().tab(title: "Settings", image: "gearshape.fill")
         }
         .addPartialSheet()
         .environmentObject(favorites)
+        .environmentObject(reminders)
     }
 }
 

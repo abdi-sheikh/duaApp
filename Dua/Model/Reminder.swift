@@ -8,9 +8,9 @@
 import Foundation
 
 struct Reminder: Identifiable, Hashable, Codable {
-    let id: String
-    let dua: Dua
-    let day: [String]
-    let time: Date
-    let repetition: String
+    var id: String?
+    var dua: Dua?
+    var day: Set<String>
+    var time: Date?
+    var repetition: String?
 }

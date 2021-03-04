@@ -11,7 +11,6 @@ import SwiftUI
 struct FavoriteButton : View {
     @State var scale : CGFloat = 1
     @State var opacity  = 0.0
-    @State var isPressed = false
     @EnvironmentObject var favorites: Favorites
         
     var dua: Dua

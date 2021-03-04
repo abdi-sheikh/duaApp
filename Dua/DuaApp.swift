@@ -16,6 +16,7 @@ struct DuaApp: App {
             ContentView()
                 .environmentObject(DuaViewModel())
                 .environmentObject(Favorites())
+                .environmentObject(Reminders())
                 .environmentObject(sheetManager)
             
         }

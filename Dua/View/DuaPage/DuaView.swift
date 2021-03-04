@@ -5,12 +5,10 @@
 //  Created by Abdi Sheikh on 12/31/20.
 //
 
-import Firebase
-import PartialSheet
 import SwiftUI
 
 struct DuaView: View {
-    @EnvironmentObject var partialSheetManager: PartialSheetManager
+    
     @Environment(\.colorScheme) var colorScheme
     var dua: Dua
     var categoryColor: Color
@@ -83,15 +81,7 @@ struct DuaView: View {
                 // Reminder + Favorites Capsule
                 HStack{
                     //Reminder Button
-                    Button(action: {
-                        self.partialSheetManager.showPartialSheet({
-                            print("Partial sheet dismissed")
-                        }) {
-                             ReminderButton()
-                        }
-                    }, label: {
-                        Image(systemName: "deskclock")
-                    })
+                    ReminderButton(dua: dua)
                     
                     //Divider
                     HStack {
