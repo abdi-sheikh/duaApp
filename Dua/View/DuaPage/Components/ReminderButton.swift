@@ -11,23 +11,26 @@ import SwiftUI
 struct ReminderButton: View {
     @EnvironmentObject var partialSheetManager: PartialSheetManager
     @EnvironmentObject var reminder: Reminders
+    @State var toggleIcon = false
     var dua: Dua
     
     var body: some View {
         Button(action: {
             self.partialSheetManager.showPartialSheet({
             }) {
-                RemindersModal(dua: dua)
+                RemindersModal(toggleIcon: $toggleIcon, dua: dua)
             }
         }, label: {
             ZStack {
                 Image(systemName: "deskclock.fill")
                     // if true or false hide or show filled heart w/ animation
-                    .opacity(1.0)
-                    .scaleEffect(1.0)
+                    .opacity(toggleIcon ? 1 : 0)
+                    .scaleEffect(toggleIcon ? 1.0 : 0.1)
                     .animation(.easeIn)
                 Image(systemName: "deskclock")
-            }.font(.system(size: 20))
+            }
+            .font(.system(size: 20))
+            .foregroundColor(toggleIcon ? .blue : .secondary)
         })
     }
 }
@@ -46,6 +49,8 @@ struct RemindersModal: View {
     @State var timeSelection = Date()
     @State var repeatSelection: String = "Weekly"
     @State var daysSelection = Set<String>()
+    @State private var showingAlert = false
+    @Binding var toggleIcon: Bool
     @State var reminders = Reminder(id: UUID().uuidString, dua: nil, day: [], time: nil, repetition: nil)
     @EnvironmentObject var partialSheetManager: PartialSheetManager
     @EnvironmentObject var reminder: Reminders
@@ -60,6 +65,7 @@ struct RemindersModal: View {
             
             // Time - Date picker
             DatePicker("Please enter a time", selection: $timeSelection, displayedComponents: .hourAndMinute)
+                .environment(\.timeZone, TimeZone(secondsFromGMT: 5*60*60)!)
                 .padding(.horizontal)
             
             
@@ -81,9 +87,38 @@ struct RemindersModal: View {
                 .cornerRadius(5)
             }.padding(.horizontal)
             
-            
             // Save Button
-            SaveButton(timeSelection: $timeSelection, repeatSelection: $repeatSelection, daysSelection: $daysSelection, dua: dua)
+            
+            Button(
+                action: {
+                    withAnimation {
+                        reminders.dua = dua
+                        reminders.day = daysSelection
+                        reminders.time = timeSelection
+                        reminders.repetition = repeatSelection
+                        guard reminders.day.count > 0 else {
+                            return showingAlert = true
+                        }
+                        reminder.add(reminders)
+                        toggleIcon = true
+                        print(reminder.reminders)
+                        partialSheetManager.closePartialSheet()
+                    }
+            }) {
+                Text("Save")
+                    .padding(.horizontal, 50)
+                    .padding(.vertical, 10)
+                    .foregroundColor(.blue)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.gray, lineWidth: 1)
+                            .frame(width: 150, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    )
+                // if a day is not selected you cannot save data
+            }.alert(isPresented: $showingAlert) {
+                Alert(title: Text("Please select a day"), message: Text("scheduling error"), dismissButton: .default(Text("Ok")))
+            }
+            
         }
     }
 }
@@ -129,46 +164,3 @@ struct DaysOfTheWeekButtons: View {
         }.padding(.horizontal)
     }
 }
-
-// Save Button
-struct SaveButton: View {
-    @Binding var timeSelection: Date
-    @Binding var repeatSelection: String
-    @Binding var daysSelection: Set<String>
-    @State private var showingAlert = false
-    @State var reminders = Reminder(id: UUID().uuidString, dua: nil, day: [], time: nil, repetition: nil)
-    @EnvironmentObject var partialSheetManager: PartialSheetManager
-    @EnvironmentObject var reminder: Reminders
-    var dua: Dua
-    
-    var body: some View {
-        Button(
-            action: {
-                withAnimation {
-                    reminders.dua = dua
-                    reminders.day = daysSelection
-                    reminders.time = timeSelection
-                    reminders.repetition = repeatSelection
-                    guard reminders.day.count > 0 else {
-                        return showingAlert = true
-                    }
-                    reminder.add(reminders)
-                    partialSheetManager.closePartialSheet()
-                }
-        }) {
-            Text("Save")
-                .padding(.horizontal, 50)
-                .padding(.vertical, 10)
-                .foregroundColor(.blue)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.gray, lineWidth: 1)
-                        .frame(width: 150, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                )
-            // if a day is not selected you cannot save data
-        }.alert(isPresented: $showingAlert) {
-            Alert(title: Text("Please select a day"), message: Text("scheduling error"), dismissButton: .default(Text("Ok")))
-        }
-    }
-}
-
