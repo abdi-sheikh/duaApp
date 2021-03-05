@@ -106,6 +106,7 @@ struct DuaView: View {
         } // attributes for scroll view
         .foregroundColor(.white)
         .background(LinearGradient(gradient: Gradient(colors: colorScheme == .dark ? [.black, categoryColor] : [.white, categoryColor] ), startPoint: .center, endPoint: .bottom))
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

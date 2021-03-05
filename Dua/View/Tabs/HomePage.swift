@@ -26,11 +26,17 @@ struct HomePage: View {
     ]
     
     var body: some View {
-        NavigationView{
-            CategoryView(category_Data: allCategories)
-                .navigationBarTitle("Dua Reminder")
-                .navigationBarTitleDisplayMode(.large)
-        }.foregroundColor(.gray)
+        NavigationView {
+            ScrollView {
+                VStack{
+                    MainCategoriesView()
+                    CategoryView(category_Data: allCategories)
+                }
+            }
+            .navigationBarTitle("DuaApp", displayMode: .large)
+        }
+        .environment(\.horizontalSizeClass, .compact)
+        .foregroundColor(.gray)
     }
 }
 

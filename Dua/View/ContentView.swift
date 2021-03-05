@@ -17,15 +17,17 @@ struct ContentView: View {
     }
     
     var body: some View {
-        UIKitTabView {
-            HomePage().tab(title: "Home", image: "house.fill")
-            ReminderPage().environmentObject(reminders).tab(title: "Reminders", image: "deskclock.fill")
-            FavoritesPage().environmentObject(favorites).tab(title: "Favorites", image: "heart.fill")
-            SettingsPage().tab(title: "Settings", image: "gearshape.fill")
-        }
-        .addPartialSheet()
-        .environmentObject(favorites)
-        .environmentObject(reminders)
+//        UIKitTabView {
+//            HomePage().tab(title: "Home", image: "house.fill")
+//            ReminderPage().environmentObject(reminders).tab(title: "Reminders", image: "deskclock.fill")
+//            FavoritesPage().environmentObject(favorites).tab(title: "Favorites", image: "heart.fill")
+//            SettingsPage().tab(title: "Settings", image: "gearshape.fill")
+//        }
+        
+        HomePage()
+            .addPartialSheet()
+            .environmentObject(favorites)
+            .environmentObject(reminders)
     }
 }
 

@@ -11,7 +11,6 @@ struct ReminderPage: View {
     @EnvironmentObject var reminders: Reminders
     
     var body: some View {
-        NavigationView {
             
 //            if reminders.reminders.isEmpty {
 //                VStack{
@@ -47,7 +46,7 @@ struct ReminderPage: View {
 
                 }.navigationBarTitle("Reminders")
             // }
-        }.environment(\.horizontalSizeClass, .compact)
+                .environment(\.horizontalSizeClass, .compact)
     }
     
 }
