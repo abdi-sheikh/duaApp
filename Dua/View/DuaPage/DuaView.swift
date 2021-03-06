@@ -91,7 +91,7 @@ struct DuaView: View {
                     .foregroundColor(.secondary)
                     
                     // Fav Button
-                    FavoriteButton(dua: dua)
+                    FavoriteButton(duaId: dua.id)
                 }
                 .foregroundColor(.secondary)
                 .padding()

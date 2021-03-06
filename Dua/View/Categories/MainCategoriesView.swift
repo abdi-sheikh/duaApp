@@ -9,13 +9,16 @@ import SwiftUI
 
 struct MainCategoriesView: View {
     @Environment(\.colorScheme) var colorScheme
-    @StateObject var favorites = Favorites()
-    @StateObject var reminders = Reminders()
-    
+    @EnvironmentObject var favorites : Favorites
+    @EnvironmentObject var reminders : Reminders
+    var color1 = "Reminder Fire"
+    var image1 = "reminder"
+    var color2 = "Gopher Gold"
+    var image2 = "014-heart"
     
     var body: some View {
         VStack{
-            NavigationLink(destination: ReminderPage()) {
+            NavigationLink(destination: ReminderPage(color: color1, image: image1)) {
                 VStack {
                         HStack {
                             VStack(alignment: .leading){
@@ -42,7 +45,7 @@ struct MainCategoriesView: View {
                                 }
                             }
                             Spacer()
-                            Image("reminder")
+                            Image(image1)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(maxHeight: 43, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -52,14 +55,14 @@ struct MainCategoriesView: View {
                     .frame(maxWidth: .infinity, minHeight: 100)
                     .background(
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                            .fill(Color("Reminder Fire"))
+                            .fill(Color(color1))
                             .shadow(color: colorScheme == .dark ? Color(.sRGBLinear, white: 100, opacity: 0.2) : Color(.sRGBLinear, white: 0, opacity: 0.33), radius: 5)
                     )
                     .padding(.horizontal, 30)
                     .padding(.vertical, 10)
-            }
+            }.environmentObject(reminders)
 
-            NavigationLink(destination: FavoritesPage()) {
+            NavigationLink(destination: FavoritesPage(color: color2, image: image2)) {
                 VStack {
                         HStack {
                             VStack(alignment: .leading){
@@ -69,8 +72,8 @@ struct MainCategoriesView: View {
                                     .minimumScaleFactor(0.01)
                                     .lineLimit(0)
                                     .foregroundColor(.black)
-                                if favorites.duas.count != 1 {
-                                    Text("\(favorites.duas.count) favorites")
+                                if favorites.ids.count != 1 {
+                                    Text("\(favorites.ids.count) favorites")
                                         .font(.footnote)
                                         .fontWeight(.thin)
                                         .minimumScaleFactor(0.01)
@@ -78,7 +81,7 @@ struct MainCategoriesView: View {
                                         .foregroundColor(.black)
                                     
                                 } else {
-                                    Text("\(favorites.duas.count) favorite")
+                                    Text("\(favorites.ids.count) favorite")
                                         .font(.footnote)
                                         .fontWeight(.thin)
                                         .minimumScaleFactor(0.01)
@@ -87,7 +90,7 @@ struct MainCategoriesView: View {
                                 }
                             }
                             Spacer()
-                            Image("014-heart")
+                            Image(image2)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(maxHeight: 43, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -97,12 +100,12 @@ struct MainCategoriesView: View {
                     .frame(maxWidth: .infinity, minHeight: 100)
                     .background(
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                            .fill(Color("Gopher Gold"))
+                            .fill(Color(color2))
                             .shadow(color: colorScheme == .dark ? Color(.sRGBLinear, white: 100, opacity: 0.2) : Color(.sRGBLinear, white: 0, opacity: 0.33), radius: 5)
                     )
                     .padding(.horizontal, 30)
                     .padding(.vertical, 10)
-            }
+            }.environmentObject(favorites)
         }
 
     }

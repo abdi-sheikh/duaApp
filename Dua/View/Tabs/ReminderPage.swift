@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ReminderPage: View {
     @EnvironmentObject var reminders: Reminders
+    var color: String
+    var image: String
     
     var body: some View {
             
@@ -26,9 +28,9 @@ struct ReminderPage: View {
 //            } else {
                 List{
                     ForEach(reminders.reminders
-                                .sorted{ $0.dua?.name ?? ""  < $1.dua?.name ?? "" }) { reminder in
+                                .sorted{ $0.dua?.name ?? ""  < $1.dua?.name ?? ""}, id: \.self) { reminder in
                         NavigationLink(
-                            destination: DuaView(dua: reminder.dua!, categoryColor: Color(.blue))) {
+                            destination: DuaView(dua: reminder.dua!, categoryColor: Color(color))) {
                             VStack(alignment: .leading){
                                 Text(reminder.dua?.name.capitalized ?? "")
                                     .foregroundColor(.primary)
@@ -43,16 +45,24 @@ struct ReminderPage: View {
                             }
                         }
                     }
-
-                }.navigationBarTitle("Reminders")
+                }
+                .navigationBarTitle("Reminders")
+                .navigationBarItems(
+                    trailing:
+                        Image(image)
+                        .resizable()
+                        .frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                )
             // }
                 .environment(\.horizontalSizeClass, .compact)
+        
+        
+        
     }
-    
 }
 
 struct ReminderPage_Previews: PreviewProvider {
     static var previews: some View {
-        ReminderPage().environmentObject(Reminders())
+        ReminderPage(color: "Gopher Gold", image: "014-heart").environmentObject(Reminders())
     }
 }

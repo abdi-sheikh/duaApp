@@ -9,30 +9,44 @@ import PartialSheet
 import SwiftUI
 
 struct FavoriteButton : View {
-    @State var scale : CGFloat = 1
-    @State var opacity  = 0.0
-    @EnvironmentObject var favorites: Favorites
-        
-    var dua: Dua
+    @EnvironmentObject private var favorites: Favorites
+    var duaId: String
 
     var body: some View {
-        
         ZStack {
             Image(systemName: "heart.fill")
-                // if true or false hide or show filled heart w/ animation
-                .opacity(favorites.contains(dua) ? 1 : 0)
-                .scaleEffect(favorites.contains(dua) ? 1.0 : 0.1)
+                .opacity(opacity)
+                .scaleEffect(scaleEffect)
                 .animation(.easeIn)
             Image(systemName: "heart")
         }.font(.system(size: 20))
-        .onTapGesture {
-            // add or remove from userDefaults fav data
-            if favorites.contains(dua) == false {
-                self.favorites.add(dua)
-            } else {
-                self.favorites.remove(dua)
-            }
+        .onTapGesture(perform: toggleHeart)
+        .foregroundColor(foregroundColor)
+    }
+}
+
+private extension FavoriteButton {
+    var isFavorited: Bool {
+        favorites.ids.contains(duaId)
+    }
+    
+    var opacity: Double {
+        isFavorited ? 1 : 0
+    }
+    
+    var scaleEffect: CGFloat {
+        isFavorited ? 1.0 : 0.1
+    }
+    
+    var foregroundColor: Color {
+        isFavorited ? .red : .secondary
+    }
+    
+    func toggleHeart() {
+        if isFavorited == false {
+            self.favorites.add(duaId)
+        } else {
+            self.favorites.remove(duaId)
         }
-        .foregroundColor(favorites.contains(dua) ? .red : .secondary)
     }
 }

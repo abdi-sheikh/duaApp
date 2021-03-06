@@ -8,7 +8,7 @@
 import SwiftUI
 
 class Favorites: ObservableObject {
-    @Published var duas = Set<Dua>()
+    @Published private(set) var ids = Set<String>()
     
     let defaults = UserDefaults.standard
     
@@ -16,34 +16,26 @@ class Favorites: ObservableObject {
         // load out saved data
         let decoder = JSONDecoder()
         if let data = defaults.value(forKey: "Favorites") as? Data {
-            let duaData = try? decoder.decode(Set<Dua>.self, from: data)
-            self.duas = duaData ?? []
+            let idData = try? decoder.decode(Set<String>.self, from: data)
+            self.ids = idData ?? []
         } else {
-            self.duas = []
+            self.ids = []
         }
     }
-    
-    func isEmpty() -> Bool {
-        duas.count < 1
-    }
-    
-    func contains(_ dua: Dua) -> Bool {
-        duas.contains(dua)
-    }
-    
-    func add(_ dua: Dua) {
-        duas.insert(dua)
+            
+    func add(_ id: String) {
+        ids.insert(id)
         save()
     }
     
-    func remove(_ dua: Dua) {
-        duas.remove(dua)
+    func remove(_ id: String) {
+        ids.remove(id)
         save()
     }
     
-    func save() {
+    private func save() {
         let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(duas) {
+        if let encoded = try? encoder.encode(ids) {
             defaults.set(encoded, forKey: "Favorites")
         }
     }

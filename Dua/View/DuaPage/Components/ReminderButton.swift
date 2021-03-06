@@ -9,63 +9,76 @@ import PartialSheet
 import SwiftUI
 
 struct ReminderButton: View {
-    @EnvironmentObject var partialSheetManager: PartialSheetManager
-    @EnvironmentObject var reminder: Reminders
-    @State var toggleIcon = false
+    @EnvironmentObject private var partialSheetManager: PartialSheetManager
+    @EnvironmentObject private var reminder: Reminders
+    @State private var toggleIcon = false
+    
     var dua: Dua
     
     var body: some View {
         Button(action: {
-            self.partialSheetManager.showPartialSheet({
-            }) {
+            partialSheetManager.showPartialSheet {
                 RemindersModal(toggleIcon: $toggleIcon, dua: dua)
             }
-        }, label: {
+        }) {
             ZStack {
                 Image(systemName: "deskclock.fill")
-                    // if true or false hide or show filled heart w/ animation
-                    .opacity(toggleIcon ? 1 : 0)
-                    .scaleEffect(toggleIcon ? 1.0 : 0.1)
+                    .opacity(opacity)
+                    .scaleEffect(scaleEffect)
                     .animation(.easeIn)
                 Image(systemName: "deskclock")
             }
             .font(.system(size: 20))
-            .foregroundColor(toggleIcon ? .blue : .secondary)
-        })
-    }
-}
-
-struct ReminderButton_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            ReminderButton(dua: Dua.init(id: "abc123", name: "Waking up", arabicDua: "الحَمْدُ لِلهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ", translation: "All praise is for Allah who gave us life after causing us to die, and unto Him is the resurrection. (Bukhari)", transliteration: "alḥamdu lillaahil-ladhee aḥyaanaa ba‛da maa amaatanaa wa ilayhin-nushoor", category: "daily"))
+            .foregroundColor(foregroundColor)
         }
     }
 }
 
+// MARK: - Private helpers
+
+private extension ReminderButton {
+    var opacity: Double {
+        toggleIcon ? 1 : 0
+    }
+    
+    var scaleEffect: CGFloat {
+        toggleIcon ? 1.0 : 0.1
+    }
+    
+    var foregroundColor: Color {
+        toggleIcon ? .blue : .secondary
+    }
+}
+
+
 //MARK: - Scheduling Reminders Modal
 
 struct RemindersModal: View {
+    @EnvironmentObject var partialSheetManager: PartialSheetManager
+    @EnvironmentObject var reminders: Reminders
+    
     @State var timeSelection = Date()
     @State var repeatSelection: String = "Weekly"
     @State var daysSelection = Set<String>()
     @State private var showingAlert = false
+    @State var reminder = Reminder(id: UUID().uuidString, dua: nil, day: [], time: nil, repetition: nil)
+    
     @Binding var toggleIcon: Bool
-    @State var reminders = Reminder(id: UUID().uuidString, dua: nil, day: [], time: nil, repetition: nil)
-    @EnvironmentObject var partialSheetManager: PartialSheetManager
-    @EnvironmentObject var reminder: Reminders
+
+
     var dua: Dua
-    let array = ["Daily", "Weekly", "Bi-weekly", "Monthly"]
+    let repeatArray = ["Daily", "Weekly", "Bi-weekly", "Monthly"]
     
     var body: some View {
         VStack {
+            
+            
             // Days
             DaysOfTheWeekButtons(daysSelection: $daysSelection)
             
             
             // Time - Date picker
             DatePicker("Please enter a time", selection: $timeSelection, displayedComponents: .hourAndMinute)
-                .environment(\.timeZone, TimeZone(secondsFromGMT: 5*60*60)!)
                 .padding(.horizontal)
             
             
@@ -74,7 +87,7 @@ struct RemindersModal: View {
                 Text("Repeat")
                 Spacer()
                 Picker(repeatSelection, selection: $repeatSelection) {
-                    ForEach(array, id: \.self) { day in
+                    ForEach(repeatArray, id: \.self) { day in
                         Text(day).tag(day)
                     }
                 }
@@ -87,21 +100,20 @@ struct RemindersModal: View {
                 .cornerRadius(5)
             }.padding(.horizontal)
             
-            // Save Button
             
+            // Save Button
             Button(
                 action: {
                     withAnimation {
-                        reminders.dua = dua
-                        reminders.day = daysSelection
-                        reminders.time = timeSelection
-                        reminders.repetition = repeatSelection
-                        guard reminders.day.count > 0 else {
+                        reminder.dua = dua
+                        reminder.day = daysSelection
+                        reminder.time = timeSelection
+                        reminder.repetition = repeatSelection
+                        guard reminder.day.count > 0 else {
                             return showingAlert = true
                         }
-                        reminder.add(reminders)
-                        toggleIcon = true
-                        print(reminder.reminders)
+                        reminders.add(reminder)
+                        toggleIcon = reminders.contains(reminder)
                         partialSheetManager.closePartialSheet()
                     }
             }) {

@@ -14,6 +14,16 @@ class DuaViewModel: ObservableObject {
     let db = Firestore.firestore()
     
     init() {
+        load()
+    }
+    
+    func duaById(_ id: String) -> Dua? {
+        return duas.first { dua in
+            dua.id == id
+        }
+    }
+    
+    func load() {
         db.collection("dua").getDocuments{ [weak self] (snap, err) in
             if err != nil {
                 print(err?.localizedDescription as Any)
@@ -32,7 +42,6 @@ class DuaViewModel: ObservableObject {
                 self?.duas.append(Dua(id: id, name: name, arabicDua: arabicDua, translation: translation, transliteration: transliteration, category: category))
             }
         }
-        
     }
 }
 

@@ -12,13 +12,12 @@ import SwiftUI
 struct DuaApp: App {
     var body: some Scene {
         WindowGroup {
-            let sheetManager: PartialSheetManager = PartialSheetManager()
             ContentView()
                 .environmentObject(DuaViewModel())
                 .environmentObject(Favorites())
                 .environmentObject(Reminders())
-                .environmentObject(sheetManager)
-            
+                .environmentObject(PartialSheetManager())
+                .environment(\.horizontalSizeClass, .compact)
         }
     }
 }
