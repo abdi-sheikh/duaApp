@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CF1DDA725F5A45400B867AC /* RemindersModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF1DDA625F5A45400B867AC /* RemindersModal.swift */; };
+		0CF1DDAA25F5A49800B867AC /* DaysOfTheWeekButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF1DDA925F5A49800B867AC /* DaysOfTheWeekButtons.swift */; };
 		AC069B1F259D93F7004C49D4 /* DuaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC069B1E259D93F7004C49D4 /* DuaListView.swift */; };
 		AC1382D825BA81E9007415CF /* ReminderPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1382D725BA81E9007415CF /* ReminderPage.swift */; };
 		AC1382EC25C11A34007415CF /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1382EB25C11A34007415CF /* FavoriteButton.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CF1DDA625F5A45400B867AC /* RemindersModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersModal.swift; sourceTree = "<group>"; };
+		0CF1DDA925F5A49800B867AC /* DaysOfTheWeekButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfTheWeekButtons.swift; sourceTree = "<group>"; };
 		4A7F1BEE8703E94C4FA63FA9 /* Pods-Dua.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dua.debug.xcconfig"; path = "Target Support Files/Pods-Dua/Pods-Dua.debug.xcconfig"; sourceTree = "<group>"; };
 		AC069B1E259D93F7004C49D4 /* DuaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaListView.swift; sourceTree = "<group>"; };
 		AC1382D725BA81E9007415CF /* ReminderPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPage.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 			children = (
 				AC1382EB25C11A34007415CF /* FavoriteButton.swift */,
 				AC1382EE25C1285E007415CF /* ReminderButton.swift */,
+				0CF1DDA625F5A45400B867AC /* RemindersModal.swift */,
+				0CF1DDA925F5A49800B867AC /* DaysOfTheWeekButtons.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -335,11 +341,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACF9BD9D259C25D3004BC0FF /* HomePage.swift in Sources */,
+				0CF1DDA725F5A45400B867AC /* RemindersModal.swift in Sources */,
 				ACBCE96625D6307F00266975 /* UIKitTabView.swift in Sources */,
 				ACC94AEF25EF512E00C3ADCF /* Reminders.swift in Sources */,
 				AC21AF4425C263FC00BE27DB /* FavoritesPage.swift in Sources */,
 				ACF9BD85259C0441004BC0FF /* ContentView.swift in Sources */,
 				ACF9BD83259C0441004BC0FF /* DuaApp.swift in Sources */,
+				0CF1DDAA25F5A49800B867AC /* DaysOfTheWeekButtons.swift in Sources */,
 				AC1382EC25C11A34007415CF /* FavoriteButton.swift in Sources */,
 				ACF9BD93259C15AE004BC0FF /* CategoryView.swift in Sources */,
 				AC069B1F259D93F7004C49D4 /* DuaListView.swift in Sources */,
