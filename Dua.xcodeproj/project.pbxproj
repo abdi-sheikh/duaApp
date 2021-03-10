@@ -14,12 +14,13 @@
 		AC1382EC25C11A34007415CF /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1382EB25C11A34007415CF /* FavoriteButton.swift */; };
 		AC1382EF25C1285E007415CF /* ReminderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1382EE25C1285E007415CF /* ReminderButton.swift */; };
 		AC21AF4425C263FC00BE27DB /* FavoritesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC21AF4325C263FC00BE27DB /* FavoritesPage.swift */; };
+		AC3E057725F8758A00F9474B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3E057625F8758A00F9474B /* Utils.swift */; };
+		AC3E059125F88CD200F9474B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC3E059025F88CD200F9474B /* GoogleService-Info.plist */; };
 		AC6D140D259EE19B00A4636B /* DuaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D140C259EE19B00A4636B /* DuaView.swift */; };
 		AC6D1427259EF7B800A4636B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D1426259EF7B800A4636B /* Category.swift */; };
 		AC6D142D259EF7F000A4636B /* Dua.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D142C259EF7F000A4636B /* Dua.swift */; };
 		AC6D1430259F071D00A4636B /* DuaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D142F259F071D00A4636B /* DuaViewModel.swift */; };
 		AC83918D25EDD4B9003FDF4D /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = AC83918C25EDD4B9003FDF4D /* PartialSheet */; };
-		AC85698A25EB55C400982D32 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC85698925EB55C400982D32 /* GoogleService-Info.plist */; };
 		ACBCE96625D6307F00266975 /* UIKitTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCE96525D6307F00266975 /* UIKitTabView.swift */; };
 		ACBCE96A25DF5CCF00266975 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCE96925DF5CCF00266975 /* Favorites.swift */; };
 		ACC94AEF25EF512E00C3ADCF /* Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC94AEE25EF512E00C3ADCF /* Reminders.swift */; };
@@ -44,11 +45,12 @@
 		AC1382EB25C11A34007415CF /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		AC1382EE25C1285E007415CF /* ReminderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderButton.swift; sourceTree = "<group>"; };
 		AC21AF4325C263FC00BE27DB /* FavoritesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPage.swift; sourceTree = "<group>"; };
+		AC3E057625F8758A00F9474B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		AC3E059025F88CD200F9474B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC6D140C259EE19B00A4636B /* DuaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaView.swift; sourceTree = "<group>"; };
 		AC6D1426259EF7B800A4636B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		AC6D142C259EF7F000A4636B /* Dua.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dua.swift; sourceTree = "<group>"; };
 		AC6D142F259F071D00A4636B /* DuaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuaViewModel.swift; sourceTree = "<group>"; };
-		AC85698925EB55C400982D32 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ACBCE96525D6307F00266975 /* UIKitTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitTabView.swift; sourceTree = "<group>"; };
 		ACBCE96925DF5CCF00266975 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		ACC94AEE25EF512E00C3ADCF /* Reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminders.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				ACBCE96525D6307F00266975 /* UIKitTabView.swift */,
+				AC3E057625F8758A00F9474B /* Utils.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -194,7 +197,7 @@
 				AC6D1410259EF5A700A4636B /* View */,
 				AC6D140F259EF5A100A4636B /* Model */,
 				ACF9BD82259C0441004BC0FF /* DuaApp.swift */,
-				AC85698925EB55C400982D32 /* GoogleService-Info.plist */,
+				AC3E059025F88CD200F9474B /* GoogleService-Info.plist */,
 				ACF9BD8B259C0443004BC0FF /* Info.plist */,
 				ACF9BD88259C0443004BC0FF /* Preview Content */,
 				ACF9BD86259C0443004BC0FF /* Assets.xcassets */,
@@ -285,9 +288,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACF9BD99259C1FC6004BC0FF /* Colors.xcassets in Resources */,
+				AC3E059125F88CD200F9474B /* GoogleService-Info.plist in Resources */,
 				ACF9BD8A259C0443004BC0FF /* Preview Assets.xcassets in Resources */,
 				ACF9BD87259C0443004BC0FF /* Assets.xcassets in Resources */,
-				AC85698A25EB55C400982D32 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +358,7 @@
 				AC1382EF25C1285E007415CF /* ReminderButton.swift in Sources */,
 				ACC94B0125F1525200C3ADCF /* MainCategoriesView.swift in Sources */,
 				AC6D1430259F071D00A4636B /* DuaViewModel.swift in Sources */,
+				AC3E057725F8758A00F9474B /* Utils.swift in Sources */,
 				AC6D140D259EE19B00A4636B /* DuaView.swift in Sources */,
 				ACBCE96A25DF5CCF00266975 /* Favorites.swift in Sources */,
 				ACC94AF225EF51DE00C3ADCF /* Reminder.swift in Sources */,

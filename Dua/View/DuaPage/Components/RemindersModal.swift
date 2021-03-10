@@ -20,8 +20,6 @@ struct RemindersModal: View {
     @State private var showingAlert = false
     @State var reminder = Reminder(id: UUID().uuidString, dua: nil, day: [], time: nil, repetition: nil)
     
-    @Binding var toggleIcon: Bool
-
 
     var dua: Dua
     let repeatArray = ["Daily", "Weekly", "Bi-weekly", "Monthly"]
@@ -70,7 +68,6 @@ struct RemindersModal: View {
                             return showingAlert = true
                         }
                         reminders.add(reminder)
-                        toggleIcon = reminders.contains(reminder)
                         partialSheetManager.closePartialSheet()
                     }
             }) {

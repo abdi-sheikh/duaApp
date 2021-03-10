@@ -8,61 +8,68 @@
 import SwiftUI
 
 struct ReminderPage: View {
-    @EnvironmentObject var reminders: Reminders
+    @EnvironmentObject private var reminders: Reminders
+    @EnvironmentObject private var duaViewModel: DuaViewModel
     var color: String
     var image: String
     
     var body: some View {
-            
-//            if reminders.reminders.isEmpty {
-//                VStack{
-//                    Spacer()
-//                    Image(systemName: "deskclock")
-//                        .resizable()
-//                        .frame(width: 100, height: 90, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-//                        .foregroundColor(.gray)
-//                    Text("Add reminders for quick").fontWeight(.light)
-//                    Text("and easy notifcations on your daily dua's").fontWeight(.light)
-//                    Spacer()
-//                }.navigationBarTitle("Reminders")
-//            } else {
-                List{
-                    ForEach(reminders.reminders
-                                .sorted{ $0.dua?.name ?? ""  < $1.dua?.name ?? ""}, id: \.self) { reminder in
-                        NavigationLink(
-                            destination: DuaView(dua: reminder.dua!, categoryColor: Color(color))) {
-                            VStack(alignment: .leading){
-                                Text(reminder.dua?.name.capitalized ?? "")
-                                    .foregroundColor(.primary)
-                                    .fontWeight(.light)
-                                    .lineLimit(2)
-                                HStack {
-                                    Text(reminder.time!, style: .time).font(.footnote).fontWeight(.light)
-                                    
-                                    
-                                }
-                                
-                            }
-                        }
-                    }
-                }
-                .navigationBarTitle("Reminders")
-                .navigationBarItems(
-                    trailing:
-                        Image(image)
-                        .resizable()
-                        .frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                )
-            // }
-                .environment(\.horizontalSizeClass, .compact)
-        
+        (reminders.reminders.isEmpty ? fallbackView.any : remindersListView.any)
+        .navigationTitle("Reminders")
+        .navigationBarItems(trailing: EditButton())
         
         
     }
 }
-
-struct ReminderPage_Previews: PreviewProvider {
-    static var previews: some View {
-        ReminderPage(color: "Gopher Gold", image: "014-heart").environmentObject(Reminders())
+private extension ReminderPage {
+    var fallbackView: some View {
+        VStack{
+            Spacer()
+            Image(systemName: "deskclock")
+                .resizable()
+                .frame(width: 100, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .foregroundColor(.gray)
+            Text(String.fallbackTitle)
+                .fontWeight(.light)
+                .padding(.horizontal, 44)
+                .multilineTextAlignment(.center)
+            Spacer()
+        }
     }
+    
+    var remindersListView: some View {
+        List {
+            ForEach(reminders.reminders
+                        .sorted{ $0.dua?.name ?? ""  < $1.dua?.name ?? ""}, id: \.self) { reminder in
+                NavigationLink(
+                    destination: DuaView(dua: reminder.dua!, categoryColor: Color(color))) {
+                    VStack(alignment: .leading){
+                        Text(reminder.dua?.name.capitalized ?? "")
+                            .foregroundColor(.primary)
+                            .fontWeight(.light)
+                            .lineLimit(2)
+                        HStack {
+                            Text(reminder.time!, style: .time)
+                                .fontWeight(.light)
+                                .font(.footnote)
+                            Text(reminder.repetition!)
+                                .fontWeight(.light)
+                                .font(.footnote)
+                            Text(reminder.day!)
+                                .fontWeight(.light)
+                                .font(.footnote)
+                        }
+                    }
+                }
+            }.onDelete(perform: reminders.remove)
+        }
+    }
+
+}
+
+
+// MARK: - String constatns
+
+fileprivate extension String {
+    static let fallbackTitle = "Add reminders for quick and easy notifcations on your daily dua's"
 }

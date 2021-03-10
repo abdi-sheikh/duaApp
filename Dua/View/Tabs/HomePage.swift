@@ -34,7 +34,6 @@ struct HomePage: View {
                 }
             }
             .navigationBarTitle("DuaApp", displayMode: .large)
-            .navigationBarItems(trailing: Image(systemName: "ellipsis.circle"))
         }
         .environment(\.horizontalSizeClass, .compact)
         .foregroundColor(.gray)

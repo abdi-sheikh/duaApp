@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-// TODO - Move to separate files somewhere
-
-extension View {
-    var any: AnyView {
-        AnyView(self)
-    }
-}
-
 // MARK: - FavoritesPage
 
 struct FavoritesPage: View {
@@ -27,6 +19,12 @@ struct FavoritesPage: View {
     var body: some View {
         (favorites.ids.isEmpty ? fallbackView.any : favoritesListView.any)
         .navigationTitle("Favorites")
+        .navigationBarItems(
+            trailing:
+                Image(image)
+                .resizable()
+                .frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        )
     }
 }
 

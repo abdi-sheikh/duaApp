@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryView: View {
-    @Environment(\.colorScheme) var colorScheme
+    @Environment(\.colorScheme) private var colorScheme
     var columns = Array(repeating: GridItem(.adaptive(minimum: 159)), count: 2)
     var category_Data: [Category]
     

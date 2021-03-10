@@ -11,22 +11,18 @@ import SwiftUI
 struct ReminderButton: View {
     @EnvironmentObject private var partialSheetManager: PartialSheetManager
     @EnvironmentObject private var reminder: Reminders
-    @State private var toggleIcon = false
     
     var dua: Dua
     
     var body: some View {
         Button(action: {
             partialSheetManager.showPartialSheet {
-                RemindersModal(toggleIcon: $toggleIcon, dua: dua)
+                RemindersModal(dua: dua)
             }
         }) {
             ZStack {
-                Image(systemName: "deskclock.fill")
-                    .opacity(opacity)
-                    .scaleEffect(scaleEffect)
-                    .animation(.easeIn)
                 Image(systemName: "deskclock")
+                    .animation(.easeIn)
             }
             .font(.system(size: 20))
             .foregroundColor(foregroundColor)
@@ -37,15 +33,19 @@ struct ReminderButton: View {
 // MARK: - Private helpers
 
 private extension ReminderButton {
+    var isReminder: Bool {
+        reminder.reminders.contains{$0.dua == dua}
+    }
+    
     var opacity: Double {
-        toggleIcon ? 1 : 0
+        isReminder ? 1 : 0
     }
     
     var scaleEffect: CGFloat {
-        toggleIcon ? 1.0 : 0.1
+        isReminder ? 1.0 : 0.1
     }
     
     var foregroundColor: Color {
-        toggleIcon ? .blue : .secondary
+        isReminder ? .blue : .secondary
     }
 }

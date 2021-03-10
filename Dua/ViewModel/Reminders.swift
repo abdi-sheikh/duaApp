@@ -8,36 +8,36 @@
 import SwiftUI
 
 class Reminders: ObservableObject {
-    @Published var reminders = Set<Reminder>()
+    @Published private(set) var reminders = [Reminder]()
     let defaults = UserDefaults.standard
     
     init() {
         // load out saved data
         let decoder = JSONDecoder()
         if let data = defaults.value(forKey: "Reminders") as? Data {
-            let reminderData = try? decoder.decode(Set<Reminder>.self, from: data)
+            let reminderData = try? decoder.decode([Reminder].self, from: data)
             self.reminders = reminderData ?? []
         } else {
             self.reminders = []
         }
     }
     
-    func isEmpty() -> Bool {
-        reminders.count < 1
-    }
-    
     func contains(_ reminder: Reminder) -> Bool {
         reminders.contains(reminder)
     }
-    
+        
     func add(_ reminder: Reminder) {
-        reminders.insert(reminder)
+        reminders.append(reminder)
         save()
     }
     
-    func remove(_ reminder: Reminder) {
-        reminders.remove(reminder)
+    func remove(atOffsets indexSet: IndexSet) {
+        reminders.remove(atOffsets: indexSet)
         save()
+    }
+    
+    func edit(_ id: String, _ reminder: Reminder) {
+        
     }
     
     func save() {
