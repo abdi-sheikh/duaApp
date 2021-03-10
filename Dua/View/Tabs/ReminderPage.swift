@@ -55,9 +55,6 @@ private extension ReminderPage {
                             Text(reminder.repetition!)
                                 .fontWeight(.light)
                                 .font(.footnote)
-                            Text(reminder.day!)
-                                .fontWeight(.light)
-                                .font(.footnote)
                         }
                     }
                 }
