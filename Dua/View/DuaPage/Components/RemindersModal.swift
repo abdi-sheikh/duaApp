@@ -5,72 +5,36 @@
 //  Created by jabari on 3/7/21.
 //
 
+import DLLocalNotifications
 import PartialSheet
 import SwiftUI
 
 //MARK: - Scheduling Reminders Modal
 
 struct RemindersModal: View {
-    @EnvironmentObject var partialSheetManager: PartialSheetManager
-    @EnvironmentObject var reminders: Reminders
+    @EnvironmentObject private var partialSheetManager: PartialSheetManager
+    @EnvironmentObject private var reminders: Reminders
     
-    @State var timeSelection = Date()
-    @State var repeatSelection: String = "Weekly"
-    @State var daysSelection = Set<String>()
+    @State private var timeSelection = Date()
+    @State private var daysSelection = Set<String>()
     @State private var showingAlert = false
-    @State var reminder = Reminder(id: UUID().uuidString, dua: nil, day: [], time: nil, repetition: nil)
+    @State private var reminder = Reminder(id: UUID().uuidString, dua: nil, day: [], time: nil)
     
-
+    
     var dua: Dua
-    let repeatArray = ["Daily", "Weekly", "Bi-weekly", "Monthly"]
     
     var body: some View {
         VStack {
-            
-            
             // Days
             DaysOfTheWeekButtons(daysSelection: $daysSelection)
             
-            
             // Time - Date picker
-            DatePicker("Please enter a time", selection: $timeSelection, displayedComponents: .hourAndMinute)
-                .padding(.horizontal)
-            
-            
-            // Repeat
-            HStack(alignment: .center) {
-                Text("Repeat")
-                Spacer()
-                Picker(repeatSelection, selection: $repeatSelection) {
-                    ForEach(repeatArray, id: \.self) { day in
-                        Text(day).tag(day)
-                    }
-                }
-                .frame(width: 93, height: 35)
-                .pickerStyle(MenuPickerStyle())
-                .background(
-                    Color(.lightGray)
-                        .opacity(0.2)
-                )
-                .cornerRadius(5)
-            }.padding(.horizontal)
-            
+            timePicker
             
             // Save Button
-            Button(
-                action: {
-                    withAnimation {
-                        reminder.dua = dua
-                        reminder.day = daysSelection
-                        reminder.time = timeSelection
-                        reminder.repetition = repeatSelection
-                        guard reminder.day.count > 0 else {
-                            return showingAlert = true
-                        }
-                        reminders.add(reminder)
-                        partialSheetManager.closePartialSheet()
-                    }
-            }) {
+            Button{
+                withAnimation { save() }
+            } label: {
                 Text("Save")
                     .padding(.horizontal, 50)
                     .padding(.vertical, 10)
@@ -87,4 +51,74 @@ struct RemindersModal: View {
             
         }
     }
+}
+
+private extension RemindersModal {
+    func save() {
+        reminder.dua = dua
+        reminder.day = daysSelection
+        reminder.time = timeSelection
+        guard reminder.day.count > 0 else {
+            return showingAlert = true
+        }
+        reminders.add(reminder)
+        
+        scheduleReminder(reminder.time!)
+        partialSheetManager.closePartialSheet()
+    }
+    
+    var timePicker: some View {
+        DatePicker("Please enter a time", selection: $timeSelection, displayedComponents: .hourAndMinute)
+            .padding(.horizontal)
+    }
+    
+    func scheduleReminder(_ time: Date) {
+        let content = UNMutableNotificationContent()
+        content.title = "Its time to make your dua!"
+        content.body = dua.name
+        content.sound = .default
+        content.launchImageName = "AppIcon"
+        let scheduledDays = getNumberDays(days: reminder.day)
+        let scheduler = DLNotificationScheduler()
+        
+        if scheduledDays.count == 7 {
+            let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: time)
+            let notification = DLNotification(identifier: "\(reminder.id!)", alertTitle: dua.name, alertBody: dua.arabicDua, fromDateComponents: triggerDate, repeatInterval: .daily)
+            scheduler.scheduleNotification(notification: notification)
+        } else {
+            for scheduledDay in scheduledDays {
+                let specficDay = Calendar.current.date(byAdding: .day, value: scheduledDay, to: time)!
+                let triggerDate = Calendar.current.dateComponents([.day, .hour, .minute], from: specficDay)
+                let notification = DLNotification(identifier: "\(reminder.id!)-\(scheduledDay - 1)", alertTitle: dua.name, alertBody: dua.arabicDua, fromDateComponents: triggerDate, repeatInterval: .weekly)
+                scheduler.scheduleNotification(notification: notification)
+            }
+        }
+        scheduler.scheduleAllNotifications()
+    }
+    
+    func getNumberDays(days: Set<String>) -> [Int] {
+        var numDays: [Int] = []
+        for day in days {
+            switch day {
+            case "Mon":
+                numDays.append(1)
+            case "Tues":
+                numDays.append(2)
+            case "Wed":
+                numDays.append(3)
+            case "Thur":
+                numDays.append(4)
+            case "Fri":
+                numDays.append(5)
+            case "Sat":
+                numDays.append(6)
+            case "Sun":
+                numDays.append(7)
+            default:
+                numDays.append(0)
+            }
+        }
+        return numDays
+    }
+    
 }

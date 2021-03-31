@@ -15,10 +15,8 @@ struct ReminderPage: View {
     
     var body: some View {
         (reminders.reminders.isEmpty ? fallbackView.any : remindersListView.any)
-        .navigationTitle("Reminders")
-        .navigationBarItems(trailing: EditButton())
-        
-        
+            .navigationTitle("Reminders")
+            .navigationBarItems(trailing: EditButton())
     }
 }
 private extension ReminderPage {
@@ -50,9 +48,6 @@ private extension ReminderPage {
                             .lineLimit(2)
                         HStack {
                             Text(reminder.time!, style: .time)
-                                .fontWeight(.light)
-                                .font(.footnote)
-                            Text(reminder.repetition!)
                                 .fontWeight(.light)
                                 .font(.footnote)
                         }

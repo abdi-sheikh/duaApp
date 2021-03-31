@@ -12,5 +12,4 @@ struct Reminder: Identifiable, Hashable, Codable {
     var dua: Dua?
     var day: Set<String>
     var time: Date?
-    var repetition: String?
 }
