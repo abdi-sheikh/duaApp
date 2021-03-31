@@ -5,6 +5,7 @@
 //  Created by Abdi Sheikh on 3/2/21.
 //
 
+import DLLocalNotifications
 import SwiftUI
 
 class Reminders: ObservableObject {

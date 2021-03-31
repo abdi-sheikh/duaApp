@@ -10,5 +10,8 @@ target 'Dua' do
 
   # Optionally, include the Swift extensions if you're using Swift.
   pod 'FirebaseFirestoreSwift'
+  
+  # Local Notications library
+  pod 'DLLocalNotifications'
 
 end

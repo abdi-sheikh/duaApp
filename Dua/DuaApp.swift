@@ -8,12 +8,19 @@
 import Firebase
 import PartialSheet
 import SwiftUI
+import UserNotifications
 
 @main
 struct DuaApp: App {
     
     init() {
         FirebaseApp.configure()
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+            if granted == true && error == nil {
+                
+            }
+        }
     }
     
     var body: some Scene {
