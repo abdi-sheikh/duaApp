@@ -218,7 +218,6 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.7):
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
-  - DLLocalNotifications (0.09)
   - Firebase/CoreOnly (6.34.0):
     - FirebaseCore (= 6.10.4)
   - Firebase/Firestore (6.34.0):
@@ -286,7 +285,6 @@ PODS:
   - PromisesObjC (1.2.11)
 
 DEPENDENCIES:
-  - DLLocalNotifications
   - Firebase/Firestore
   - FirebaseFirestoreSwift
 
@@ -294,7 +292,6 @@ SPEC REPOS:
   trunk:
     - abseil
     - BoringSSL-GRPC
-    - DLLocalNotifications
     - Firebase
     - FirebaseCore
     - FirebaseCoreDiagnostics
@@ -311,7 +308,6 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
-  DLLocalNotifications: 4c81c059c8a890b5a4bf79e5e4d4c8ff26e8500c
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
   FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
   FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
@@ -325,6 +321,6 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
 
-PODFILE CHECKSUM: de72a7d78ffb26d061f1af5ccb9e1ac8b7179a57
+PODFILE CHECKSUM: 54c00d67d835af7d0acf10f6f9badd020a6595ad
 
 COCOAPODS: 1.10.0
