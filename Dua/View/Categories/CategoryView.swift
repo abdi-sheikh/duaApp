@@ -42,7 +42,7 @@ struct CategoryView: View {
             }
         }
         .padding(.horizontal, 10)
-        .padding(.top, 25)
+        .padding(.top, 15)
         .padding(.bottom, 20)
     }
 }

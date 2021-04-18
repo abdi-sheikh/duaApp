@@ -49,17 +49,17 @@ struct MainCategoriesView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(maxHeight: 43, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            
+
                         }.padding(.horizontal, 40)
                     }
-                    .frame(maxWidth: .infinity, minHeight: 100)
+                    .frame(maxWidth: .infinity, minHeight: 75)
                     .background(
-                        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                        RoundedRectangle(cornerRadius: 15)
                             .fill(Color(color1))
                             .shadow(color: colorScheme == .dark ? Color(.sRGBLinear, white: 100, opacity: 0.2) : Color(.sRGBLinear, white: 0, opacity: 0.33), radius: 5)
                     )
                     .padding(.horizontal, 30)
-                    .padding(.vertical, 10)
+                    .padding(.vertical, 5)
             }.environmentObject(reminders)
 
             NavigationLink(destination: FavoritesPage(color: color2, image: image2)) {
@@ -97,14 +97,14 @@ struct MainCategoriesView: View {
                             
                         }.padding(.horizontal, 40)
                     }
-                    .frame(maxWidth: .infinity, minHeight: 100)
+                    .frame(maxWidth: .infinity, minHeight: 75)
                     .background(
-                        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                        RoundedRectangle(cornerRadius: 15)
                             .fill(Color(color2))
                             .shadow(color: colorScheme == .dark ? Color(.sRGBLinear, white: 100, opacity: 0.2) : Color(.sRGBLinear, white: 0, opacity: 0.33), radius: 5)
                     )
                     .padding(.horizontal, 30)
-                    .padding(.vertical, 10)
+                    .padding(.vertical, 5)
             }.environmentObject(favorites)
         }
 
