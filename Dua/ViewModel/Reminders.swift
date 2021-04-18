@@ -9,14 +9,14 @@ import DLLocalNotifications
 import SwiftUI
 
 class Reminders: ObservableObject {
-    @Published private(set) var reminders = [Reminder]()
+    @Published private(set) var reminders =  Set<Reminder>()
     let defaults = UserDefaults.standard
     
     init() {
         // load out saved data
         let decoder = JSONDecoder()
         if let data = defaults.value(forKey: "Reminders") as? Data {
-            let reminderData = try? decoder.decode([Reminder].self, from: data)
+            let reminderData = try? decoder.decode(Set<Reminder>.self, from: data)
             self.reminders = reminderData ?? []
         } else {
             self.reminders = []
@@ -28,12 +28,12 @@ class Reminders: ObservableObject {
     }
         
     func add(_ reminder: Reminder) {
-        reminders.append(reminder)
+        reminders.insert(reminder)
         save()
     }
     
-    func remove(atOffsets indexSet: IndexSet) {
-        reminders.remove(atOffsets: indexSet)
+    func remove(_ rem: Reminder) {
+        reminders.remove(rem)
         save()
     }
     
