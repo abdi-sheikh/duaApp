@@ -15,11 +15,15 @@ struct DuaApp: App {
     
     init() {
         FirebaseApp.configure()
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
-            if granted == true && error == nil {
-                
-            }
+        UNUserNotificationCenter.current()
+            .requestAuthorization(
+                options: [.alert, .badge, .sound]
+            ) { granted, error in
+                if granted == true && error == nil {
+                    print("Notifications permitted")
+                } else {
+                    print("Notifications not permitted")
+                }
         }
     }
     

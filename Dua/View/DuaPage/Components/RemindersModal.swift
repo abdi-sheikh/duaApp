@@ -5,7 +5,6 @@
 //  Created by jabari on 3/7/21.
 //
 
-import DLLocalNotifications
 import PartialSheet
 import SwiftUI
 
@@ -24,7 +23,35 @@ struct RemindersModal: View {
     var dua: Dua
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
+            // Reminders
+            ForEach(reminders.reminders.filter{ $0.dua == dua }, id: \.self) {rem in
+                HStack{
+                    Text(rem.time!, style: .time)
+                        .fontWeight(.thin)
+                    Text(rem.day.reduce("") { $0 + $1 + ", " })
+                        .fontWeight(.thin)
+                        
+                    Spacer()
+                    Button(action: {
+                        if rem.day.count < 7 {
+                            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(String(describing: rem.id))-[\(rem.day.count - 1)]"])
+                            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: ["\(String(describing: rem.id))-[\(rem.day.count - 1)]"])
+                        } else {
+                            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(String(describing: rem.id))"])
+                            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: ["\(String(describing: rem.id))"])
+                        }
+                        reminders.remove(rem)
+                    }, label: {
+                        Image(systemName: "multiply.circle.fill")
+                    })
+                    
+                    
+                }.padding(.horizontal, 25)
+                
+            }
+            
+            
             // Days
             DaysOfTheWeekButtons(daysSelection: $daysSelection)
             
@@ -77,42 +104,59 @@ private extension RemindersModal {
         content.title = "Its time to make your dua!"
         content.body = dua.name
         content.sound = .default
-        content.launchImageName = "AppIcon"
         let scheduledDays = getNumberDays(days: reminder.day)
-        let scheduler = DLNotificationScheduler()
         
         if scheduledDays.count == 7 {
             let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: time)
-            let notification = DLNotification(identifier: "\(reminder.id!)", alertTitle: dua.name, alertBody: dua.arabicDua, fromDateComponents: triggerDate, repeatInterval: .daily)
-            scheduler.scheduleNotification(notification: notification)
+            
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+            let request = UNNotificationRequest(identifier: "\(reminder.id!)", content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request) { (error) in
+               if error != nil {
+                 print("failure")
+               }
+            }
         } else {
             for scheduledDay in scheduledDays {
-                let specficDay = Calendar.current.date(byAdding: .day, value: scheduledDay, to: time)!
-                let triggerDate = Calendar.current.dateComponents([.day, .hour, .minute], from: specficDay)
-                let notification = DLNotification(identifier: "\(reminder.id!)-\(scheduledDay - 1)", alertTitle: dua.name, alertBody: dua.arabicDua, fromDateComponents: triggerDate, repeatInterval: .weekly)
-                scheduler.scheduleNotification(notification: notification)
+                let hour = Calendar.current.component(.hour, from: time)
+                let minute = Calendar.current.component(.minute, from: time)
+                
+                let day = DateComponents(hour: hour, minute: minute, weekday: scheduledDay)
+                let trigger = UNCalendarNotificationTrigger(dateMatching: day, repeats: true)
+                let request = UNNotificationRequest(identifier: "\(reminder.id!)-[\(scheduledDay)]", content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request) { (error) in
+                    if error != nil {
+                      print("failure")
+                    }
+                 }
             }
         }
-        scheduler.scheduleAllNotifications()
+        
+        UNUserNotificationCenter.current().getPendingNotificationRequests { pending in
+            for pen in pending {
+                print(pen)
+            }
+        }
     }
     
     func getNumberDays(days: Set<String>) -> [Int] {
         var numDays: [Int] = []
         for day in days {
             switch day {
-            case "Mon":
-                numDays.append(1)
-            case "Tues":
-                numDays.append(2)
-            case "Wed":
-                numDays.append(3)
-            case "Thur":
-                numDays.append(4)
-            case "Fri":
-                numDays.append(5)
-            case "Sat":
-                numDays.append(6)
             case "Sun":
+                numDays.append(1)
+            case "Mon":
+                numDays.append(2)
+            case "Tues":
+                numDays.append(3)
+            case "Wed":
+                numDays.append(4)
+            case "Thur":
+                numDays.append(5)
+            case "Fri":
+                numDays.append(6)
+            case "Sat":
                 numDays.append(7)
             default:
                 numDays.append(0)
