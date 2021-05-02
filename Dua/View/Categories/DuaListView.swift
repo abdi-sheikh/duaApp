@@ -4,7 +4,7 @@
 //
 //  Created by Abdi Sheikh on 12/30/20.
 //
-
+// TODO: - CLEAN UP!!!!!
 import SwiftUI
 
 struct DuaListView: View {

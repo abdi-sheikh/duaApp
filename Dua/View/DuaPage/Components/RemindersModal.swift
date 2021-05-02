@@ -9,7 +9,7 @@ import PartialSheet
 import SwiftUI
 
 //MARK: - Scheduling Reminders Modal
-
+//TODO: - CLEAN UP!!!!!
 struct RemindersModal: View {
     @EnvironmentObject private var partialSheetManager: PartialSheetManager
     @EnvironmentObject private var reminders: Reminders
@@ -29,7 +29,7 @@ struct RemindersModal: View {
                 HStack{
                     Text(rem.time!, style: .time)
                         .fontWeight(.thin)
-                    Text(rem.day.reduce("") { $0 + $1 + ", " })
+                    Text(rem.day.reduce("") { $0 + $1 + " " })
                         .fontWeight(.thin)
                         
                     Spacer()

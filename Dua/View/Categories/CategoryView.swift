@@ -4,7 +4,7 @@
 //
 //  Created by Abdi Sheikh on 12/29/20.
 //
-
+// TODO: - CLEAN UP!!!!!
 import SwiftUI
 
 struct CategoryView: View {
